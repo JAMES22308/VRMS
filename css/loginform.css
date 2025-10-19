@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 10px; /* ensure small screens */
+    
+    /* Background image sa buong page */
+    background-image: url('../images/loginphoto.jpg');
+    background-size: cover;       /* full screen */
+    background-position: center;  /* centered */
+    background-repeat: no-repeat;
+}
+
+
+.login-container {
+    width: 300px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9); /* semi-white for readability */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3); /* soft shadow for depth */
+    border: 1px solid rgba(255,255,255,0.6); /* subtle white border */
+    color: #333; /* dark text for contrast */
+}
+
+
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Page Wrapper for Center Alignment */
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    height: 100vh;
+}
+
+/* System Title Styling */
+.system-title h1 {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 480px) {
+    .system-title h1 {
+        font-size: 24px;
+        padding: 0 10px;
+    }
+
+    .login-container {
+        width: 90%;
+        padding: 15px;
+    }
+}

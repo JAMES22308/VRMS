@@ -1,0 +1,139 @@
+/* Vehicle Form */
+.vehicle-form {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+}
+
+.h2-vehicle {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(67, 67, 234);
+    margin-bottom: 20px;
+}
+
+.vehicle-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicle-form label {
+    font-weight: bold;
+    margin: 5px 0 2px 0;
+    font-size: 14px;
+}
+
+.vehicle-form input,
+.vehicle-form select {
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Add Button Gradient only */
+.vehicle-form button#addVehicle {
+    padding: 10px;
+    background: linear-gradient(90deg, #0066ff, #00b3ff);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.vehicle-form button#addVehicle:hover {
+    background: linear-gradient(90deg, #0052cc, #0099ff);
+}
+
+
+/* Table container for horizontal scroll */
+.table-container {
+    width: 95%;
+    margin: 20px auto;
+    overflow-x: auto;
+}
+
+#vehicleTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    min-width: 900px; /* ensures table can scroll if smaller screen */
+}
+
+#vehicleTable th,
+#vehicleTable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#vehicleTable th {
+    background-color: #87ceeb; /* sky blue header */
+    color: white;
+    font-weight: bold;
+}
+
+#vehicleTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#vehicleTable tr:hover {
+    background-color: #e0f0ff;
+}
+
+/* Responsive for tablets */
+@media (max-width: 768px) {
+    .vehicle-form {
+        padding: 15px;
+    }
+
+    .vehicle-form input,
+    .vehicle-form select,
+    .vehicle-form button {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    #vehicleTable th,
+    #vehicleTable td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+/* Responsive for phones */
+@media (max-width: 480px) {
+    .vehicle-form {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .vehicle-form input,
+    .vehicle-form select,
+    .vehicle-form button {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    #vehicleTable {
+        min-width: 600px; /* allows horizontal scroll */
+        font-size: 11px;
+    }
+
+    #vehicleTable th,
+    #vehicleTable td {
+        padding: 6px;
+    }
+}
