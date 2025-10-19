@@ -25,7 +25,8 @@ class VehicleController {
     bindAdd() {
         const addVehicle = document.getElementById("addVehicle");
 
-        addVehicle.onclick = () => {
+        addVehicle.onclick = (e) => {
+            e.preventDefault()
             const [
                 make,
                 model,
