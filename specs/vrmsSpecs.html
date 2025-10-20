@@ -1,0 +1,31 @@
+<!-- describe("VehicleModel", function() {
+    let vehicleModel;
+
+    beforeEach(function() {
+        vehicleModel = new VehicleModel();
+    });
+
+    it("should add a vehicle successfully", function() {
+        const car = { make: "Toyota", model: "Corolla", registrationNumber: "ABC123" };
+        const result = vehicleModel.addVehicle(car);
+
+        expect(result).toBeTrue(); 
+        expect(vehicleModel.getAllVehicle().length).toBe(1); 
+    });
+
+    it("should not add a vehicle with missing data", function() {
+        const incompleteCar = { make: "", model: "Vios" };
+        const result = vehicleModel.addVehicle(incompleteCar);
+
+        expect(result).toBeFalse(); 
+        expect(vehicleModel.getAllVehicle().length).toBe(0);
+    });
+
+    it("should find vehicle by registration number", function() {
+        const car = { make: "Honda", model: "Civic", registrationNumber: "XYZ789" };
+        vehicleModel.addVehicle(car);
+
+        const found = vehicleModel.findVehicleByReg("XYZ789");
+        expect(found).toEqual(car); 
+    });
+}); -->
