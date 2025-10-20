@@ -24,12 +24,13 @@ class Controller{
             e.preventDefault()
             let [fullname, email, phone, address, select, date] = this.view.customerValue()
 
-            let customer = {fullname, email, phone, address, select, date, status: "active"}
+            let customer = {fullname, email, phone, address, select, date, status: "Active"}
             if (this.updateIndex === null){
                 this.model.addCustomer(customer)
                 const allCustomer = this.model.getAllCustomers()
                 this.view.displayCustomer(allCustomer)
                 this.rentalView.customerValues(this.model.getAllCustomers())
+                this.reservationView.customerValues(this.model.getAllCustomers())
             }else{
                 
                 this.model.updateCustomer(customer, this.updateIndex)
