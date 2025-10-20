@@ -73,7 +73,8 @@ export class VehicleView{
         const year = document.getElementById("year").value
         const registrationNumber = document.getElementById("registrationNumber").value
         const type = document.getElementById("vehicle-type").value
-        const dailyRate = document.getElementById("dailyRate").value
+        // const dailyRate = document.getElementById("dailyRate").value
+        const dailyRate = parseFloat(document.getElementById("dailyRate").value)
         const mileage = document.getElementById("mileage").value
         const location = document.getElementById("location").value
         const status = document.getElementById("status").value
@@ -92,7 +93,9 @@ export class VehicleView{
             html += `<td>${allVehicles[i].year}</td>`
             html += `<td>${allVehicles[i].registrationNumber}</td>`
             html += `<td>${allVehicles[i].type}</td>`
-            html += `<td>${allVehicles[i].dailyRate}</td>`
+            // html += `<td>${allVehicles[i].dailyRate}</td>`
+            html += `<td>$${parseFloat(allVehicles[i].dailyRate).toFixed(2)}</td>`;
+
             html += `<td>${allVehicles[i].mileage}</td>`
             html += `<td>${allVehicles[i].location}</td>`
             html += `<td>${allVehicles[i].status}</td>`

@@ -4,7 +4,9 @@ export class RentalView{
 
         let html = `<option value="Select Customer">Select Customer</option>`
         for (let i=0; i<allCustomer.length; i++){
-            html += `<option>${allCustomer[i].fullname}</option>`
+            if (allCustomer[i].status === "Active"){
+                html += `<option>${allCustomer[i].fullname}</option>`
+            }
         }
         customerOpt.innerHTML = html
     }
@@ -46,7 +48,9 @@ export class RentalView{
             html += `<td>${allRentals[i].rentalVehicle}</td>`
             html += `<td>${allRentals[i].rentalStartDate}</td>`
             html += `<td>${allRentals[i].rentalEndDate}</td>`
-            html += `<td>$${allRentals[i].totalCost}</td>`
+            // html += `<td>$${allRentals[i].totalCost}</td>`
+            html += `<td>$${parseFloat(allRentals[i].totalCost).toFixed(2)}</td>`;
+
             html += `<td>${allRentals[i].rentalStatus}</td>`
             html += `<td><button class="rentals_delete-btn" data-index="${i}">Delete</button></td>`
             html += `<td><button class="return_btn" data-index="${i}">Return</button></td>`

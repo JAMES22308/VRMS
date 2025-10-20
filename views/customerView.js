@@ -23,6 +23,7 @@ export class CustomerView{
             html += `<td>${allCustomers[i].select}</td>`
             html += `<td>${allCustomers[i].date}</td>`
             html += `<td>${allCustomers[i].status}</td>`
+            html += `<td><button class="deactivate-btn" data-index="${i}">Deactivation</button></td>`
             html += `<td><button class="update-btn" data-index="${i}">Update</button></td>`
             html += `<td><button class="delete-btn" data-index="${i}">Delete</button></td>`
             html += `</tr>`

@@ -3,6 +3,7 @@ import { RentalView } from "../views/rentalView.js";
 import { RentalModel } from "../model/rentalModel.js";
 import { ReservationView } from "../views/reservationView.js";
 import { vehicleSharedModel } from "../model/sharedModel.js";
+import { SearchView } from "../views/searchViews.js";
 
 class VehicleController {
     constructor() {
@@ -11,6 +12,7 @@ class VehicleController {
         this.rentalView = new RentalView();
         this.rentalModel = new RentalModel();
         this.reservationView = new ReservationView();
+        this.searchView = new SearchView()
         this.vehicleView.displayValues(this.vehicleModel.getAllVehicle())
 
         this.bindAdd();
@@ -43,11 +45,16 @@ class VehicleController {
 
             if (this.updatedIndex === null) {
                 this.vehicleModel.addVehicle(newVehicle);
-                console.log("✅ Vehicle added:", this.vehicleModel.getAllVehicle());
+                console.log("Vehicle added:", this.vehicleModel.getAllVehicle());
+
+                this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle())
+                this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle())
+                this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
+
 
             } else {
                 this.vehicleModel.updateVehicle(this.updatedIndex, newVehicle);
-                console.log("🔁 Vehicle updated:", this.vehicleModel.getAllVehicle());
+                console.log("Vehicle updated:", this.vehicleModel.getAllVehicle());
                 this.updatedIndex = null;
 
                 addVehicle.innerHTML = "Add Vehicle";

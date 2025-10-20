@@ -1,17 +1,20 @@
 import { CustomerModel } from "../model/customerModel.js"
 import { CustomerView } from "../views/customerView.js"
 import { RentalView } from "../views/rentalView.js"
+import { ReservationView } from "../views/reservationView.js"
 
 class Controller{
     constructor(){
         this.model = new CustomerModel()
         this.view = new CustomerView()
         this.rentalView = new RentalView()
+        this.reservationView = new ReservationView()
         this.view.displayCustomer(this.model.getAllCustomers())
         this.updateIndex = null
         this.add()
         this.bindDeleteButtons()
         this.bindUpdateButtons()
+        this.bindDeactivation()
         
     }
 
@@ -73,6 +76,22 @@ class Controller{
             }
         })
 
+    }
+
+
+
+    bindDeactivation(){
+        const tbody = document.getElementById("tbody")
+        tbody.addEventListener("click", (e)=>{
+            if (e.target.classList.contains("deactivate-btn")){
+                const index = e.target.dataset.index
+                this.model.deactivateCustomer(index)
+                this.view.displayCustomer(this.model.getAllCustomers())
+
+                this.rentalView.customerValues(this.model.getAllCustomers())
+                this.reservationView.customerValues(this.model.getAllCustomers())
+            }
+        })
     }
 
     

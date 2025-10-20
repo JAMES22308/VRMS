@@ -9,9 +9,11 @@ export class ReservationView{
     customerValues(allcustomers){
         const customerOpt = document.getElementById("reservationCustomer")
 
-        let html = `<option value="Select Custoemr">Select Customer</option>`
+        let html = `<option value="Select Customer">Select Customer</option>`
         for (let i=0; i<allcustomers.length; i++){
-            html += `<option>${allcustomers[i].fullname}</option>`
+            if(allcustomers[i].status === "Active"){
+                html += `<option>${allcustomers[i].fullname}</option>`
+            }
         }
 
         customerOpt.innerHTML = html

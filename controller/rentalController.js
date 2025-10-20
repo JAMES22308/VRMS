@@ -3,7 +3,9 @@ import { RentalView } from "../views/rentalView.js";
 import { CustomerModel } from "../model/customerModel.js";
 import { VehicleView } from "../views/vehicleView.js";
 import { ReservationView } from "../views/reservationView.js";
+import { SearchView } from "../views/searchViews.js";
 import { vehicleSharedModel } from "../model/sharedModel.js";
+
 
 class RentalController {
     constructor() {
@@ -13,6 +15,7 @@ class RentalController {
         this.vehicleModel = vehicleSharedModel;
         this.vehicleView = new VehicleView();
         this.reservationView = new ReservationView();
+        this.searchView = new SearchView()
 
         this.updatedIndex = null;
 
@@ -26,6 +29,7 @@ class RentalController {
         this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle());
         this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle());
         this.vehicleView.displayValues(this.vehicleModel.getAllVehicle())
+
 
 
         this.bindAddRental();
@@ -62,6 +66,8 @@ class RentalController {
                 this.rentalView.displayRentals(this.rentalModel.getAllRentals());
                 this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle());
                 this.vehicleView.displayValues(this.vehicleModel.getAllVehicle())
+                this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
+                this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle())
 
                 console.log(`🚗 Vehicle ${rentalVehicle} set to Unavailable`);
             }
@@ -137,6 +143,8 @@ class RentalController {
             if (e.target.classList.contains("return_btn")) {
                 const index = Number(e.target.dataset.index);
                 const rental = this.rentalModel.getAllRentals()[index];
+                
+                rental.totalCost = parseFloat(parseFloat(rental.totalCost).toFixed(2));
 
                 if (rental && rental.rentalStatus !== "Returned") {
                     rental.rentalStatus = "Returned";
@@ -146,6 +154,10 @@ class RentalController {
 
                     this.rentalView.displayRentals(this.rentalModel.getAllRentals());
                     this.vehicleView.displayValues(this.vehicleModel.getAllVehicle());
+
+                    this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle())
+                    this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle())
+                    this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
 
                     console.log(`Rental ${rental.rentalVehicle} returned and vehicle set to Available`);
                 }

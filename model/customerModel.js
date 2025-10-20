@@ -24,4 +24,17 @@ export class CustomerModel{
     getAllCustomers(){
         return this.allCustomers
     }
+
+    deactivateCustomer(index) {
+        const currentStatus = this.allCustomers[index].status;
+
+        if (currentStatus === "Active") {
+            this.allCustomers[index].status = "Deactivate";
+        } else {
+            this.allCustomers[index].status = "Active";
+        }
+
+        this.saveToLocalStorage();
+    }
+
 }
