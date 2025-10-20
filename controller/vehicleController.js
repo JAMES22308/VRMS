@@ -5,7 +5,7 @@ import { ReservationView } from "../views/reservationView.js";
 import { vehicleSharedModel } from "../model/sharedModel.js";
 import { SearchView } from "../views/searchViews.js";
 
-class VehicleController {
+ export class VehicleController {
     constructor() {
         this.vehicleModel = vehicleSharedModel;
         this.vehicleView = new VehicleView();
