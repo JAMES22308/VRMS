@@ -113,19 +113,19 @@
     <div class="vehicle-form">
         <form id="vehicleForm">
             <label for="make">Make</label>
-            <input type="text" id="make" placeholder="Make">
+            <input type="text" id="make" placeholder="Make" required>
 
             <label for="model">Model</label>
-            <input type="text" id="model" placeholder="Model">
+            <input type="text" id="model" placeholder="Model" required>
 
             <label for="year">Year</label>
-            <input type="number" id="year" placeholder="Year" min="1990" max="2025">
+            <input type="number" id="year" placeholder="Year" min="1990" max="2025" required>
 
             <label for="registrationNumber">Registration No.</label>
-            <input type="text" id="registrationNumber" placeholder="Registration No.">
+            <input type="text" id="registrationNumber" placeholder="Registration No." required>
 
             <label for="vehicle-type">Type</label>
-            <select id="vehicle-type">
+            <select id="vehicle-type" required>
                 <option value="Sedan">Sedan</option>
                 <option value="SUV">SUV</option>
                 <option value="Truck">Truck</option>
@@ -133,13 +133,13 @@
             </select>
 
             <label for="dailyRate">Daily Rate ($)</label>
-            <input type="number" id="dailyRate" placeholder="Daily Rate ($)" min="0" step="0.01">
+            <input type="number" id="dailyRate" placeholder="Daily Rate ($)" min="0" step="0.01" required>
 
             <label for="mileage">Mileage (km)</label>
-            <input type="number" id="mileage" placeholder="Mileage (km)" min="0">
+            <input type="number" id="mileage" placeholder="Mileage (km)" min="0" required>
 
             <label for="location">Location</label>
-            <input type="text" id="location" placeholder="Location">
+            <input type="text" id="location" placeholder="Location" required>
 
             <label for="status">Status</label>
             <select id="status">
@@ -148,7 +148,7 @@
                 <option value="Reserved">Reserved</option>
             </select>
 
-            <button type="button" id="addVehicle">Add Vehicle</button>
+            <button type="submit" id="addVehicle">Add Vehicle</button>
         </form>
     </div>
 

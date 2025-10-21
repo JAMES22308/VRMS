@@ -23,7 +23,10 @@ class Controller{
         form.onsubmit = (e)=>{
             e.preventDefault()
             let [fullname, email, phone, address, select, date] = this.view.customerValue()
-
+            if (!fullname || !email || !phone || !address || !select || !date) {
+                alert("Please fill in all required fields!");
+                return;
+            }
             let customer = {fullname, email, phone, address, select, date, status: "Active"}
             if (this.updateIndex === null){
                 this.model.addCustomer(customer)

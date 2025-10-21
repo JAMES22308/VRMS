@@ -56,6 +56,10 @@ class RentalController {
             e.preventDefault();
 
             const [customer, rentalVehicle, rentalStartDate, rentalEndDate, totalCost] = this.rentalView.getValues();
+            if (!customer || !rentalVehicle || !rentalStartDate || !rentalEndDate || !totalCost) {
+                alert("Please fill in all required rental fields!");
+            return;
+            }
             const rental = { customer, rentalVehicle, rentalStartDate, rentalEndDate, totalCost, rentalStatus: "Rented" };
 
             if (this.updatedIndex === null) {

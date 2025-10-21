@@ -46,6 +46,10 @@ class ReservationController {
             e.preventDefault();
 
             const [reservationCustomer, select_reserve, reservationDate] = this.view.getValues();
+            if (!reservationCustomer || !select_reserve || !reservationDate) {
+                alert("Please fill out all fields before adding a reservation.");
+            return;
+        }
             const reserve = { reservationCustomer, select_reserve, reservationDate, status: "Reserved" };
 
             this.model.addReservation(reserve);

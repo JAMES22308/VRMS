@@ -29,6 +29,7 @@ class VehicleController {
 
         addVehicle.onclick = (e) => {
             e.preventDefault()
+                
             const [
                 make,
                 model,
@@ -40,7 +41,10 @@ class VehicleController {
                 location,
                 status
             ] = this.vehicleView.getValues();
-
+            if (!make || !model || !year || !registrationNumber || !type || !dailyRate || !mileage || !location) {
+                alert("Please fill in all required fields!");
+                return;
+            }
             const newVehicle = { make, model, year, registrationNumber, type, dailyRate, mileage, location, status };
 
             if (this.updatedIndex === null) {
