@@ -130,7 +130,11 @@ class RentalController {
             if (e.target.classList.contains("rentals_delete-btn")) {
                 const index = e.target.dataset.index;
                 this.rentalModel.deleteRentals(index);
+
                 this.rentalView.displayRentals(this.rentalModel.getAllRentals());
+                this.vehicleView.displayValues(this.vehicleModel.getAllVehicle());
+                this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle())
+                this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
             }
         });
     }
@@ -138,36 +142,64 @@ class RentalController {
 
 
 
+
+
+    // bindReturnRental() {
+    //     const rentalTable = document.getElementById("rentalTbody");
+
+    //     rentalTable.addEventListener("click", (e) => {
+    //         if (e.target.classList.contains("return_btn")) {
+    //             const index = Number(e.target.dataset.index);
+    //             const rental = this.rentalModel.getAllRentals()[index];
+                
+    //             rental.totalCost = parseFloat(parseFloat(rental.totalCost).toFixed(2));
+
+    //             if (rental && rental.rentalStatus !== "Returned") {
+    //                 rental.rentalStatus = "Returned";
+    //                 this.rentalModel.saveToLocalStorage(); 
+
+    //                 this.vehicleModel.updateVehicleStatus(rental.rentalVehicle, "Available");
+
+    //                 this.rentalView.displayRentals(this.rentalModel.getAllRentals());
+    //                 this.vehicleView.displayValues(this.vehicleModel.getAllVehicle());
+
+    //                 this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle())
+    //                 this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle())
+    //                 this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
+
+    //                 console.log(`Rental ${rental.rentalVehicle} returned and vehicle set to Available`);
+    //             }
+    //         }
+    //     });
+    // }
 
 
     bindReturnRental() {
-        const rentalTable = document.getElementById("rentalTbody");
+    const rentalTable = document.getElementById("rentalTbody");
 
-        rentalTable.addEventListener("click", (e) => {
-            if (e.target.classList.contains("return_btn")) {
-                const index = Number(e.target.dataset.index);
-                const rental = this.rentalModel.getAllRentals()[index];
-                
-                rental.totalCost = parseFloat(parseFloat(rental.totalCost).toFixed(2));
+    rentalTable.addEventListener("click", (e) => {
+        if (e.target.classList.contains("return_btn")) {
+            const index = Number(e.target.dataset.index);
+            const rental = this.rentalModel.getAllRentals()[index];
 
-                if (rental && rental.rentalStatus !== "Returned") {
-                    rental.rentalStatus = "Returned";
-                    this.rentalModel.saveToLocalStorage(); 
+            if (rental && rental.rentalStatus !== "Returned") {
+                this.rentalModel.returnRentals(index);
 
-                    this.vehicleModel.updateVehicleStatus(rental.rentalVehicle, "Available");
-
-                    this.rentalView.displayRentals(this.rentalModel.getAllRentals());
-                    this.vehicleView.displayValues(this.vehicleModel.getAllVehicle());
-
-                    this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle())
-                    this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle())
-                    this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
-
-                    console.log(`Rental ${rental.rentalVehicle} returned and vehicle set to Available`);
+                if (rental.overdueFee > 0) {
+                    alert(`This rental is overdue! Fee: $${rental.overdueFee.toFixed(2)}`);
                 }
+
+                this.vehicleModel.updateVehicleStatus(rental.rentalVehicle, "Available");
+
+                this.rentalView.displayRentals(this.rentalModel.getAllRentals());
+                this.vehicleView.displayValues(this.vehicleModel.getAllVehicle());
+                this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle())
+                this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
             }
-        });
-    }
+        }
+    });
+}
+
 
 }
 

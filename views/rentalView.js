@@ -38,28 +38,52 @@ export class RentalView{
     }
 
 
+    // displayRentals(allRentals){
+    //     const vehicleTbody = document.getElementById("rentalTbody")
+    //     let html = ``
+
+    //     for (let i=0; i<allRentals.length; i++){
+    //         html += `<tr>`
+    //         html += `<td>${allRentals[i].rentalID}</td>`
+    //         html += `<td>${allRentals[i].customer}</td>`
+    //         html += `<td>${allRentals[i].rentalVehicle}</td>`
+    //         html += `<td>${allRentals[i].rentalStartDate}</td>`
+    //         html += `<td>${allRentals[i].rentalEndDate}</td>`
+    //         // html += `<td>$${allRentals[i].totalCost}</td>`
+    //         html += `<td>$${parseFloat(allRentals[i].totalCost).toFixed(2)}</td>`;
+
+    //         html += `<td>${allRentals[i].rentalStatus}</td>`
+    //         html += `<td><button class="rentals_delete-btn" data-index="${i}">Delete</button></td>`
+    //         html += `<td><button class="return_btn" data-index="${i}">Return</button></td>`
+    //         html += `</tr>`
+    //     }
+
+    //     vehicleTbody.innerHTML = html
+    // }
+
+
     displayRentals(allRentals){
-        const vehicleTbody = document.getElementById("rentalTbody")
-        let html = ``
+    const vehicleTbody = document.getElementById("rentalTbody")
+    let html = ``
 
-        for (let i=0; i<allRentals.length; i++){
-            html += `<tr>`
-            html += `<td>${allRentals[i].rentalID}</td>`
-            html += `<td>${allRentals[i].customer}</td>`
-            html += `<td>${allRentals[i].rentalVehicle}</td>`
-            html += `<td>${allRentals[i].rentalStartDate}</td>`
-            html += `<td>${allRentals[i].rentalEndDate}</td>`
-            // html += `<td>$${allRentals[i].totalCost}</td>`
-            html += `<td>$${parseFloat(allRentals[i].totalCost).toFixed(2)}</td>`;
-
-            html += `<td>${allRentals[i].rentalStatus}</td>`
-            html += `<td><button class="rentals_delete-btn" data-index="${i}">Delete</button></td>`
-            html += `<td><button class="return_btn" data-index="${i}">Return</button></td>`
-            html += `</tr>`
-        }
-
-        vehicleTbody.innerHTML = html
+    for (let i=0; i<allRentals.length; i++){
+        html += `<tr>`
+        html += `<td>${allRentals[i].rentalID}</td>`
+        html += `<td>${allRentals[i].customer}</td>`
+        html += `<td>${allRentals[i].rentalVehicle}</td>`
+        html += `<td>${allRentals[i].rentalStartDate}</td>`
+        html += `<td>${allRentals[i].rentalEndDate}</td>`
+        html += `<td>$${parseFloat(allRentals[i].totalCost).toFixed(2)}</td>`
+        html += `<td>${allRentals[i].rentalStatus}</td>`
+        html += `<td>$${allRentals[i].overdueFee ? allRentals[i].overdueFee.toFixed(2) : "0.00"}</td>` // NEW
+        html += `<td><button class="rentals_delete-btn" data-index="${i}">Delete</button></td>`
+        html += `<td><button class="return_btn" data-index="${i}">Return</button></td>`
+        html += `</tr>`
     }
+
+    vehicleTbody.innerHTML = html
+}
+
 
     diplayUpdateValue(allRentals, index){
         const customer = document.getElementById("rentalCustomer")
