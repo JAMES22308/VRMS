@@ -26,22 +26,26 @@ export class CustomerModel{
         this.saveToLocalStorage()
 
     }
-    updateCustomer(customer, index){
-        this.allCustomers[index] = customer
-        this.saveToLocalStorage()
+    updateCustomer(customer, index) {
+        const existingId = this.allCustomers[index].userID;
+        customer.userID = existingId;
 
+        this.allCustomers[index] = customer;
+        this.saveToLocalStorage();
     }
+
     getAllCustomers(){
         return this.allCustomers
     }
 
     deactivateCustomer(index) {
         const currentStatus = this.allCustomers[index].status;
-
         if (currentStatus === "Active") {
             this.allCustomers[index].status = "Deactivate";
+
         } else {
             this.allCustomers[index].status = "Active";
+
         }
 
         this.saveToLocalStorage();

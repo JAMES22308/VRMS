@@ -26,6 +26,8 @@ export class RentalModel{
 
     }
     updateRentals(rentals, index){
+        const existingID = this.allRentals[index].rentalID
+        rentals.rentalID = existingID
         this.allRentals[index] = rentals
         this.saveToLocalStorage()
     }

@@ -28,6 +28,8 @@ export class VehicleModel {
     }
 
     updateVehicle(index, updatedData) {
+        const existingID = this.allVehicles[index].vehicleID
+        updatedData.vehicleID = existingID
         this.allVehicles[index] = updatedData;
         this.saveToLocalStorage();
     }
