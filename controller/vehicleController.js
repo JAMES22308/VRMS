@@ -19,9 +19,6 @@ import { SearchView } from "../views/searchViews.js";
         this.bindUpdate()
         this.bindRemove()
 
-
-
-
     }
 
     bindAdd() {
