@@ -18,6 +18,13 @@ class Controller{
         
     }
 
+    updateView(){
+
+        this.view.displayCustomer(this.model.getAllCustomers())
+        this.rentalView.customerValues(this.model.getAllCustomers())
+        this.reservationView.customerValues(this.model.getAllCustomers())
+    }
+
     add(){
         const form = document.getElementById("form")
         form.onsubmit = (e)=>{
@@ -30,19 +37,19 @@ class Controller{
             let customer = {fullname, email, phone, address, select, date, status: "Active"}
             if (this.updateIndex === null){
                 this.model.addCustomer(customer)
-                const allCustomer = this.model.getAllCustomers()
-                this.view.displayCustomer(allCustomer)
-                this.rentalView.customerValues(this.model.getAllCustomers())
-                this.reservationView.customerValues(this.model.getAllCustomers())
+
+                this.updateView()
             }else{
                 
                 this.model.updateCustomer(customer, this.updateIndex)
-                const allCustomer = this.model.getAllCustomers()
-                this.view.displayCustomer(allCustomer)
                 this.updateIndex = null
                 const addBtn = document.getElementById("addCustomer")
                 addBtn.innerHTML = "Add Customer"
-                this.rentalView.customerValues(this.model.getAllCustomers())
+
+
+                this.updateView()
+
+
             }
             
         }
@@ -54,9 +61,9 @@ class Controller{
                 const index = e.target.dataset.index;
                 const converted = parseInt(index)
                 this.model.removeCustomer(converted)
-                const allCustomer = this.model.getAllCustomers()
-                this.view.displayCustomer(allCustomer)
-                this.rentalView.customerValues(this.model.getAllCustomers())
+
+                this.updateView()
+
 
 
             }
@@ -90,15 +97,14 @@ class Controller{
             if (e.target.classList.contains("deactivate-btn")){
                 const index = e.target.dataset.index
                 this.model.deactivateCustomer(index)
-                this.view.displayCustomer(this.model.getAllCustomers())
 
+
+                this.view.displayCustomer(this.model.getAllCustomers())
                 this.rentalView.customerValues(this.model.getAllCustomers())
                 this.reservationView.customerValues(this.model.getAllCustomers())
             }
         })
     }
-
-    
 
    
 }

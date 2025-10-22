@@ -41,7 +41,7 @@ export class CustomerModel{
     deactivateCustomer(index) {
         const currentStatus = this.allCustomers[index].status;
         if (currentStatus === "Active") {
-            this.allCustomers[index].status = "Deactivate";
+            this.allCustomers[index].status = "Deactivated";
 
         } else {
             this.allCustomers[index].status = "Active";

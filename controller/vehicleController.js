@@ -20,6 +20,12 @@ import { SearchView } from "../views/searchViews.js";
         this.bindRemove()
 
     }
+    updateView(){
+
+        this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle())
+        this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle())
+        this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
+    }
 
     bindAdd() {
         const addVehicle = document.getElementById("addVehicle");
@@ -48,17 +54,19 @@ import { SearchView } from "../views/searchViews.js";
                 this.vehicleModel.addVehicle(newVehicle);
                 console.log("Vehicle added:", this.vehicleModel.getAllVehicle());
 
-                this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle())
-                this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle())
-                this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
+                this.updateView()
 
 
             } else {
                 this.vehicleModel.updateVehicle(this.updatedIndex, newVehicle);
                 console.log("Vehicle updated:", this.vehicleModel.getAllVehicle());
                 this.updatedIndex = null;
-
                 addVehicle.innerHTML = "Add Vehicle";
+
+
+                this.updateView()
+
+
             }
 
             this.vehicleView.displayValues(this.vehicleModel.getAllVehicle());
@@ -98,6 +106,11 @@ import { SearchView } from "../views/searchViews.js";
                 this.vehicleModel.removeVehicle(index); 
                 this.vehicleView.displayValues(this.vehicleModel.getAllVehicle()); 
                 console.log(` Deleted vehicle at index ${index}`);
+
+
+
+                this.updateView()
+
             }
         });
     }

@@ -23,7 +23,9 @@ export class CustomerView{
             html += `<td>${allCustomers[i].address}</td>`
             html += `<td>${allCustomers[i].select}</td>`
             html += `<td>${allCustomers[i].date}</td>`
-            html += `<td>${allCustomers[i].status}</td>`
+
+            html += `<td><span style="height: 10px; width: 10px; border-radius: 50%; display: inline-block; background-color: ${allCustomers[i].status === "Active"? 'yellow': 'red'};"></span> ${allCustomers[i].status}</td>`
+
             html += `<td><button class="deactivate-btn" data-index="${i}">Set Status</button></td>`
             html += `<td><button class="update-btn" data-index="${i}">Update</button></td>`
             html += `<td><button class="delete-btn" data-index="${i}">Delete</button></td>`
