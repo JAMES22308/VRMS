@@ -37,6 +37,7 @@ export class ReservationView{
 
         for (let i=0; i<allReserve.length; i++){
             html += `<tr>`
+            html += `<td>${allReserve[i].reservationID}</td>`
             html += `<td>${allReserve[i].reservationCustomer}</td>`
             html += `<td>${allReserve[i].select_reserve}</td>`
             html += `<td>${allReserve[i].reservationDate}</td>`

@@ -16,6 +16,7 @@ export class CustomerView{
         let html = ``
         for (let i=0; i<allCustomers.length; i++){
             html += `<tr>`
+            html += `<td>${allCustomers[i].userID}</td>`
             html += `<td>${allCustomers[i].fullname}</td>`
             html += `<td>${allCustomers[i].email}</td>`
             html += `<td>${allCustomers[i].phone}</td>`

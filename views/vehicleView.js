@@ -88,6 +88,7 @@ export class VehicleView{
         let html = ``
         for (let i=0; i<allVehicles.length; i++){
             html += `<tr>`
+            html += `<td>${allVehicles[i].vehicleID}</td>`
             html += `<td>${allVehicles[i].make}</td>`
             html += `<td>${allVehicles[i].model}</td>`
             html += `<td>${allVehicles[i].year}</td>`

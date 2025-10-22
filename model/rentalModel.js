@@ -1,3 +1,12 @@
+
+function generateId() {
+  let lastId = localStorage.getItem("lastRentalId") || 0;
+  let newId = Number(lastId) + 1;
+  localStorage.setItem("lastRentalId", newId);
+  return `RE00${newId}`;
+}
+
+
 export class RentalModel{
     constructor(){
         const saved = localStorage.getItem("rentals")
@@ -7,6 +16,7 @@ export class RentalModel{
         localStorage.setItem("rentals", JSON.stringify(this.allRentals))
     }
     addRentals(rental){
+        rental.rentalID = generateId()
         this.allRentals.push(rental)
         this.saveToLocalStorage()
     }

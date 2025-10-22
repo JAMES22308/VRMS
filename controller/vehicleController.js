@@ -14,7 +14,7 @@ import { SearchView } from "../views/searchViews.js";
         this.reservationView = new ReservationView();
         this.searchView = new SearchView()
         this.vehicleView.displayValues(this.vehicleModel.getAllVehicle())
-
+        this.updatedIndex = null
         this.bindAdd();
         this.bindUpdate()
         this.bindRemove()

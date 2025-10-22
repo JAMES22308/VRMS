@@ -44,6 +44,7 @@ export class RentalView{
 
         for (let i=0; i<allRentals.length; i++){
             html += `<tr>`
+            html += `<td>${allRentals[i].rentalID}</td>`
             html += `<td>${allRentals[i].customer}</td>`
             html += `<td>${allRentals[i].rentalVehicle}</td>`
             html += `<td>${allRentals[i].rentalStartDate}</td>`

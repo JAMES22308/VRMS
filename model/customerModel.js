@@ -1,3 +1,12 @@
+
+function generateId() {
+  let lastId = localStorage.getItem("lastCustomerId") || 0;
+  let newId = Number(lastId) + 1;
+  localStorage.setItem("lastCustomerId", newId);
+  return `C00${newId}`;
+}
+
+
 export class CustomerModel{
     constructor(){
         const saved = localStorage.getItem("customer")
@@ -8,6 +17,7 @@ export class CustomerModel{
     }
 
     addCustomer(customer){
+        customer.userID = generateId()
         this.allCustomers.push(customer)
         this.saveToLocalStorage()
     }

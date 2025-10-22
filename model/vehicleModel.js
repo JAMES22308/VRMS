@@ -1,3 +1,11 @@
+function generateId() {
+  let lastId = localStorage.getItem("lastVehicleId") || 0;
+  let newId = Number(lastId) + 1;
+  localStorage.setItem("lastVehicleId", newId);
+  return `V00${newId}`;
+}
+
+
 export class VehicleModel {
     constructor() {
         const saved = localStorage.getItem("vehicles");
@@ -9,6 +17,7 @@ export class VehicleModel {
     }
 
     addVehicle(vehicle) {
+        vehicle.vehicleID = generateId()
         this.allVehicles.push(vehicle);
         this.saveToLocalStorage();
     }
