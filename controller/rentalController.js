@@ -32,6 +32,7 @@ class RentalController {
         this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle());
         this.vehicleView.displayValues(this.vehicleModel.getAllVehicle())
         this.dashboardView.displayAllValues(this.rentalModel.getAllRentals())
+        this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
 
 
         this.dashboardView.totalRevenue(this.rentalModel.getTotalRevenue())

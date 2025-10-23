@@ -35,8 +35,9 @@
 
 .card h3 {
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #333;
+    margin-top: 0px;
 }
 
 .card p {
@@ -112,3 +113,10 @@
     }
 }
 
+.icons-2{
+    filter: invert(0);
+    width: 30px;
+    height: 30px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
