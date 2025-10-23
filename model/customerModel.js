@@ -51,4 +51,18 @@ export class CustomerModel{
         this.saveToLocalStorage();
     }
 
+    getTotalCustomer(){
+        return this.allCustomers.length
+    }
+
+    getTotalActive(){
+        let total = 0
+        for (let i=0; i<this.allCustomers.length; i++){
+            if (this.allCustomers[i].status === "Active"){
+                total++
+            }
+        }
+        return total
+    }
+
 }

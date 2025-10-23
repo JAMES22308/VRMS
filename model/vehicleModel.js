@@ -47,4 +47,18 @@ export class VehicleModel {
         }
         this.saveToLocalStorage();
     }
+
+    getTotalLengthVehicle(){
+        return this.allVehicles.length
+    }
+
+    getTotalAvailable(){
+    let total = 0
+    for (let i=0; i<this.allVehicles.length; i++){
+        if (this.allVehicles[i].status === "Available"){
+            total++
+        }
+    }
+    return total
+    }
 }

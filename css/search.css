@@ -76,12 +76,15 @@
     text-align: left;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+    text-align: center;
+
 }
 
 #searchResultsTable th {
     color: #1e1e2f;
     font-weight: 600;
     background: #f0f2f8;
+    text-align: center;
 }
 
 #searchResultsTable tr:hover {

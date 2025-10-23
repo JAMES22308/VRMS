@@ -193,3 +193,32 @@
         min-width: 600px;
     }
 }
+
+/* Rentals table buttons */
+.rentals_delete-btn {
+    background-color: #f44336; /* red */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.rentals_delete-btn:hover {
+    background-color: #d32f2f; /* darker red */
+}
+
+.return_btn {
+    background-color: #4caf50; /* green */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.return_btn:hover {
+    background-color: #388e3c; /* darker green */
+}

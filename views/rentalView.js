@@ -76,8 +76,8 @@ export class RentalView{
         html += `<td>$${parseFloat(allRentals[i].totalCost).toFixed(2)}</td>`
         html += `<td>${allRentals[i].rentalStatus}</td>`
         html += `<td>$${allRentals[i].overdueFee ? allRentals[i].overdueFee.toFixed(2) : "0.00"}</td>` // NEW
-        html += `<td><button class="rentals_delete-btn" data-index="${i}">Delete</button></td>`
         html += `<td><button class="return_btn" data-index="${i}">Return</button></td>`
+        html += `<td><button class="rentals_delete-btn" data-index="${i}">Delete</button></td>`
         html += `</tr>`
     }
 

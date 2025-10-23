@@ -18,6 +18,9 @@ class Controller{
         const rentals_btn = document.getElementById("rentals_btn")
         const reservations_btn = document.getElementById("reservations_btn")
         const search_btn = document.getElementById("search_btn")
+        const dashboard_btn = document.getElementById("dashboard_btn")
+
+        dashboard_btn.onclick = ()=> this.updateSection("dashboard_page")
 
         customers_btn.onclick = ()=> this.updateSection('customers_page')
         vehicles_btn.onclick = ()=> this.updateSection('vehicles_page')

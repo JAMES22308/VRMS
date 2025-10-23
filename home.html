@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/reservation.css">
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
 
@@ -22,6 +23,7 @@
 <header class="sidebar" id="sidebar">
   <h2 class="sidebar-title"><p style="color: #0067fc; margin-right: 5px;">V</p><p> CAR RENT</p></h2>
   <nav>
+    <button id="dashboard_btn"><span><img class="icons" src="images/icons/dashboard.png" alt="">Dashboard</span></button>
     <button id="customers_btn"><span><img class="icons" src="images/icons/customer.png" alt="">Customers</span></button>
     <button id="vehicles_btn"><span> <img class="icons" src="images/icons/car.png" alt="">Vehicles</span></button>
     <button id="rentals_btn"><span><img class="icons" src="images/icons/car-rent.png" alt="">Rentals</span></button>
@@ -42,11 +44,64 @@
 
 
 
+<section id="dashboard_page" class="section active">
+    <h2 class="h2-dashboard">Dashboard</h2>
+
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>Total Vehicles</h3>
+            <p id="totalVehicles">0</p>
+        </div>
+        <div class="card">
+            <h3>Available Vehicles</h3>
+            <p id="availableVehicles">0</p>
+        </div>
+        <div class="card">
+            <h3>Total Customers</h3>
+            <p id="totalCustomers">0</p>
+        </div>
+        <div class="card">
+            <h3>Active Customers</h3>
+            <p id="activeCustomers">0</p>
+        </div>
+        <div class="card">
+            <h3>Total Rentals</h3>
+            <p id="totalRentals">0</p>
+        </div>
+        <div class="card">
+            <h3>Total Revenue</h3>
+            <p style="color: rgb(74, 207, 74);" id="totalRevenue">0</p>
+        </div>
+    </div>
+
+    <div class="dashboard-table-container">
+    <h3>Recent Rentals</h3>
+    <table id="recentRentalsTable">
+        <thead>
+            <tr>
+                <th>RentalID</th>
+                <th>Customer</th>
+                <th>Vehicle</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Total Cost</th>
+            </tr>
+        </thead>
+        <tbody id="recentRentalsBody">
+            <!-- Dynamic rows -->
+        </tbody>
+    </table>
+</div>
+
+</section>
 
 
 
 
-   <section id="customers_page" class="section active">
+
+
+
+   <section id="customers_page" class="section ">
   <h2 class="h2-customer">Customer Management</h2>
 
   <!-- Form to add/update customer -->
@@ -241,8 +296,8 @@
                     <th>Total Cost</th>
                     <th>Status</th>
                     <th>Overdue Fee</th>
-                    <th>Delete</th>
                     <th>Return</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody id="rentalTbody">
@@ -293,7 +348,7 @@
                     <th>Vehicle</th>
                     <th>Date</th>
                     <th>Status</th>
-                    <th>Cancellation</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody id="reservationTbody">

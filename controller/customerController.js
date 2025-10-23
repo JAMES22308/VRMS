@@ -2,6 +2,7 @@ import { CustomerModel } from "../model/customerModel.js"
 import { CustomerView } from "../views/customerView.js"
 import { RentalView } from "../views/rentalView.js"
 import { ReservationView } from "../views/reservationView.js"
+import { DashboardView } from "../views/dashboardView.js"
 
 class Controller{
     constructor(){
@@ -10,19 +11,38 @@ class Controller{
         this.rentalView = new RentalView()
         this.reservationView = new ReservationView()
         this.view.displayCustomer(this.model.getAllCustomers())
+        
+        this.dashboardView = new DashboardView()
         this.updateIndex = null
         this.add()
         this.bindDeleteButtons()
         this.bindUpdateButtons()
         this.bindDeactivation()
+
+
+        this.dashboardView.totalCustomers(this.model.getTotalCustomer())
+
+        this.dashboardView.totalActiceCustomer(this.model.getTotalActive())
+
+
+
         
     }
 
     updateView(){
 
+
         this.view.displayCustomer(this.model.getAllCustomers())
         this.rentalView.customerValues(this.model.getAllCustomers())
         this.reservationView.customerValues(this.model.getAllCustomers())
+
+        this.dashboardView.totalCustomers(this.model.getTotalCustomer())
+
+
+        this.dashboardView.totalActiceCustomer(this.model.getTotalActive())
+
+
+        
     }
 
     add(){
@@ -39,6 +59,10 @@ class Controller{
                 this.model.addCustomer(customer)
 
                 this.updateView()
+
+
+                
+                
             }else{
                 
                 this.model.updateCustomer(customer, this.updateIndex)
@@ -102,6 +126,8 @@ class Controller{
                 this.view.displayCustomer(this.model.getAllCustomers())
                 this.rentalView.customerValues(this.model.getAllCustomers())
                 this.reservationView.customerValues(this.model.getAllCustomers())
+
+                this.updateView()
             }
         })
     }

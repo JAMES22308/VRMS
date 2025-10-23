@@ -4,7 +4,7 @@ import { RentalModel } from "../model/rentalModel.js";
 import { ReservationView } from "../views/reservationView.js";
 import { vehicleSharedModel } from "../model/sharedModel.js";
 import { SearchView } from "../views/searchViews.js";
-
+import { DashboardView } from "../views/dashboardView.js";
  export class VehicleController {
     constructor() {
         this.vehicleModel = vehicleSharedModel;
@@ -13,11 +13,16 @@ import { SearchView } from "../views/searchViews.js";
         this.rentalModel = new RentalModel();
         this.reservationView = new ReservationView();
         this.searchView = new SearchView()
+        this.dashboardView = new DashboardView()
         this.vehicleView.displayValues(this.vehicleModel.getAllVehicle())
         this.updatedIndex = null
         this.bindAdd();
         this.bindUpdate()
         this.bindRemove()
+
+        this.dashboardView.getTotalVehicles(this.vehicleModel.getTotalLengthVehicle())
+
+        this.dashboardView.getTotalAvailableVehicles(this.vehicleModel.getTotalAvailable())
 
     }
     updateView(){
@@ -25,6 +30,12 @@ import { SearchView } from "../views/searchViews.js";
         this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle())
         this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle())
         this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
+
+        this.dashboardView.getTotalVehicles(this.vehicleModel.getTotalLengthVehicle())
+
+        this.dashboardView.getTotalAvailableVehicles(this.vehicleModel.getTotalAvailable())
+
+        
     }
 
     bindAdd() {

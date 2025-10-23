@@ -5,6 +5,7 @@ import { VehicleView } from "../views/vehicleView.js";
 import { ReservationView } from "../views/reservationView.js";
 import { SearchView } from "../views/searchViews.js";
 import { vehicleSharedModel } from "../model/sharedModel.js";
+import { DashboardView } from "../views/dashboardView.js";
 
 
 class RentalController {
@@ -16,6 +17,7 @@ class RentalController {
         this.vehicleView = new VehicleView();
         this.reservationView = new ReservationView();
         this.searchView = new SearchView()
+        this.dashboardView = new DashboardView()
 
         this.updatedIndex = null;
 
@@ -29,6 +31,16 @@ class RentalController {
         this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle());
         this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle());
         this.vehicleView.displayValues(this.vehicleModel.getAllVehicle())
+        this.dashboardView.displayAllValues(this.rentalModel.getAllRentals())
+
+
+        this.dashboardView.totalRevenue(this.rentalModel.getTotalRevenue())
+       
+
+        this.dashboardView.totalRentals(this.rentalModel.getTotalRentals())
+
+
+        this.dashboardView.getTotalAvailableVehicles(this.vehicleModel.getTotalAvailable())
 
 
 
@@ -74,6 +86,15 @@ class RentalController {
                 this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle())
 
                 console.log(`🚗 Vehicle ${rentalVehicle} set to Unavailable`);
+
+
+                this.dashboardView.displayAllValues(this.rentalModel.getAllRentals())
+
+                this.dashboardView.totalRevenue(this.rentalModel.getTotalRevenue())
+
+                this.dashboardView.totalRentals(this.rentalModel.getTotalRentals())
+
+                this.dashboardView.getTotalAvailableVehicles(this.vehicleModel.getTotalAvailable())
             }
         };
     }
@@ -135,6 +156,13 @@ class RentalController {
                 this.vehicleView.displayValues(this.vehicleModel.getAllVehicle());
                 this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle())
                 this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
+                
+                this.dashboardView.displayAllValues(this.rentalModel.getAllRentals())
+
+
+                this.dashboardView.totalRevenue(this.rentalModel.getTotalRevenue())
+
+                this.dashboardView.totalRentals(this.rentalModel.getTotalRentals())
             }
         });
     }
@@ -195,6 +223,10 @@ class RentalController {
                 this.vehicleView.displayValues(this.vehicleModel.getAllVehicle());
                 this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle())
                 this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
+
+                this.dashboardView.displayAllValues(this.rentalModel.getAllRentals())
+
+                this.dashboardView.getTotalAvailableVehicles(this.vehicleModel.getTotalAvailable())
             }
         }
     });
