@@ -1,153 +1,186 @@
-/* ===== Reservations Page ===== */
+/* ==============================
+   RESERVATIONS SECTION
+   ============================== */
 #reservations_page {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    max-width: 500px;
-    margin: 20px auto 40px auto; /* added bottom margin */
-    font-family: Arial, sans-serif;
+    margin-left: 250px;
+    padding: 30px;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fb;
+    min-height: 100vh;
+    color: #222;
 }
 
-/* Section Title */
 #reservations_page h2 {
-    text-align: center;
-    color: rgb(67, 67, 234);
-    margin-bottom: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #1e1e2f;
+    border-left: 5px solid #0067fc;
+    padding-left: 10px;
 }
 
-/* Reservation Form */
+/* Reservation form */
 #reservationForm {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
     display: flex;
-    flex-direction: column;
-
-    gap: 12px;
+    flex-direction: column; /* stack labels and inputs */
+    gap: 18px;
 }
 
+#reservationForm .form-group {
+    display: flex;
+    flex-direction: column; /* label on top, input/select below */
+    gap: 4px;
+}
 
-
-/* Form Labels */
 #reservationForm label {
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 4px;
+    font-weight: 500;
+    font-size: 15px;
 }
 
-/* Form Inputs */
-#reservationForm select,
-#reservationForm input[type="date"] {
-    padding: 10px;
-    border-radius: 5px;
+#reservationForm input,
+#reservationForm select {
+    padding: 10px 12px;
     border: 1px solid #ccc;
-    font-size: 14px;
+    border-radius: 8px;
+    font-size: 15px;
     width: 100%;
     box-sizing: border-box;
-    transition: all 0.3s ease;
+    transition: border 0.3s ease;
 }
 
-#reservationForm select:focus,
-#reservationForm input:focus {
+#reservationForm input:focus,
+#reservationForm select:focus {
+    border-color: #6c63ff;
     outline: none;
-    border-color: rgb(67, 67, 234);
-    box-shadow: 0 0 5px rgba(67, 67, 234, 0.3);
 }
 
-/* Reserve Button Gradient */
-#reservationForm button#add_reserve_button {
-    padding: 10px;
-    background: linear-gradient(90deg, #0066ff, #00b3ff);
-    border: none;
-    border-radius: 5px;
+/* Reserve button */
+#add_reserve_button {
+    background-color: #6c63ff;
     color: white;
-    font-weight: bold;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s;
+    margin-top: 10px;
 }
 
-#reservationForm button#add_reserve_button:hover {
-    background: linear-gradient(90deg, #0052cc, #0099ff);
-    transform: translateY(-1px);
+#add_reserve_button:hover {
+    background-color: #574bff;
 }
 
-/* Table Container */
-.table-container {
-    width: 100%;
+/* Table container */
+#reservations_page .table-container {
     overflow-x: auto;
-    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin: 0 auto;
+    box-sizing: border-box;
+    /* border: 1px solid #0067fc; */
 }
 
-/* Reservations Table */
 #reservations_page table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 500px;
 }
 
 #reservations_page th,
 #reservations_page td {
-    border: 1px solid #ddd;
+    text-align: left;
     padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.reserve-button button{
+    width: 150px;
+}
+.reserve-button{
     text-align: center;
-    font-size: 14px;
 }
-
 #reservations_page th {
-    background-color: #87ceeb;
-    color: white;
-    font-weight: bold;
-}
-
-#reservations_page tr:nth-child(even) {
-    background-color: #f9f9f9;
+    color: #1e1e2f;
+    font-weight: 600;
+    background: #f0f2f8;
 }
 
 #reservations_page tr:hover {
-    background-color: #e0f0ff;
+    background-color: #f9f9f9;
 }
 
-/* Responsive for tablets */
-@media (max-width: 768px) {
-    #reservationForm select,
-    #reservationForm input[type="date"],
-    #reservationForm button {
-        font-size: 13px;
-        padding: 8px;
-    }
+/* ==============================
+   MOBILE RESPONSIVE
+   ============================== */
+@media screen and (max-width: 768px) {
 
-    #reservations_page th,
-    #reservations_page td {
-        font-size: 12px;
-        padding: 8px;
-    }
-}
-
-/* Responsive for phones */
-@media (max-width: 480px) {
     #reservations_page {
-        width: 95%;
+        margin-left: 0 !important;
         padding: 15px;
     }
 
-    #reservationForm select,
-    #reservationForm input[type="date"],
-    #reservationForm button {
+    #reservations_page h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        text-align: center;
+        border-left: none;
+        padding-left: 0;
+    }
+
+    #reservationForm {
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: none;
+        gap: 12px;
+    }
+
+    #reservationForm .form-group {
+        gap: 4px;
+    }
+
+    #reservationForm label {
         font-size: 14px;
-        padding: 12px; /* increased space for mobile */
     }
 
-    #reservations_page th,
-    #reservations_page td {
-        font-size: 12px;
+    #reservationForm input,
+    #reservationForm select {
+        padding: 8px 10px;
+        font-size: 14px;
+        border-radius: 6px;
+        height: 40px;
+    }
+
+#reservationForm input[type="date"] {
+    padding: 6px 8px;       
+    font-size: 14px;        
+    border-radius: 6px;     
+    width: 96%;  
+    height: 40px;          
+}
+
+
+    #add_reserve_button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 6px;
+    }
+
+    #reservations_page .table-container {
         padding: 8px;
+        border-radius: 8px;
+        box-shadow: none;
+        overflow-x: auto;
     }
 
-    /* make input fields taller for easier tapping */
-    #reservationForm select,
-    #reservationForm input[type="date"] {
-        height: 45px;
-    }
-    #reservationForm input[type="date"] {
-        width: 96%;
+    #reservations_page table {
+        font-size: 13px;
+        min-width: 600px;
     }
 }

@@ -1,5 +1,5 @@
 /* ==============================
-   RENTALS SECTION - DESKTOP
+   RENTALS SECTION - STACKED LAYOUT
    ============================== */
 #rentals_page {
     margin-left: 250px;
@@ -19,7 +19,7 @@
     padding-left: 10px;
 }
 
-/* Rental form layout */
+/* Rental form */
 .rental-form {
     background: #fff;
     padding: 25px;
@@ -30,14 +30,14 @@
 
 .rental-form form {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column; /* labels above inputs */
+    gap: 18px;
 }
 
 .rental-form label {
-    margin-top: 10px;
-    margin-bottom: 6px;
     font-weight: 500;
+    margin-bottom: 6px;
+    font-size: 15px;
 }
 
 .rental-form input,
@@ -46,7 +46,8 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 15px;
-    flex: 1 1 200px; /* allow stretching */
+    width: 100%; /* full width */
+    box-sizing: border-box;
     transition: border 0.3s ease;
 }
 
@@ -66,11 +67,16 @@
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
-    margin-top: 20px;
+    margin-top: 10px;
+    width: 150px;
 }
 
 #addRental:hover {
     background-color: #574bff;
+}
+
+.button-add-rental{
+    text-align: center;
 }
 
 /* Table container */
@@ -114,7 +120,6 @@
     #rentals_page {
         margin-left: 0 !important;
         padding: 15px;
-        font-size: 14px;
     }
 
     .h2-rental {
@@ -125,7 +130,6 @@
         padding-left: 0;
     }
 
-    /* Rental form adjustments */
     .rental-form {
         padding: 15px;
         border-radius: 10px;
@@ -134,8 +138,8 @@
 
     .rental-form form {
         display: flex;
-        flex-direction: column;  /* stacked labels + inputs */
-        gap: 12px;               /* consistent spacing */
+        flex-direction: column; /* stacked labels + inputs */
+        gap: 12px;
         width: 100%;
         box-sizing: border-box;
     }
@@ -150,29 +154,30 @@
     .rental-form input,
     .rental-form select {
         width: 100%;
-        max-width: 100%;
         padding: 8px 10px;
         font-size: 14px;
         border-radius: 6px;
         border: 1px solid #ccc;
         box-sizing: border-box;
+        height: 40px;
     }
+
+.rental-form input[type="date"] {
+    padding: 6px 8px;       /* adjust size */
+    font-size: 14px;        /* font size */
+    border-radius: 6px;     /* same as other inputs */
+    width: 96%;
+    height: 40px;            /* fit the container */
+    box-sizing: border-box; /* prevent overflow */
+}
+
 
     #addRental {
         width: 100%;
         padding: 10px;
         font-size: 14px;
-        margin-top: 10px;
+        margin-top: 6px;
         border-radius: 6px;
-        background-color: #6c63ff;
-        color: white;
-        border: none;
-        cursor: pointer;
-        transition: background 0.3s;
-    }
-
-    #addRental:hover {
-        background-color: #574bff;
     }
 
     /* Table adjustments */
@@ -185,6 +190,6 @@
 
     #rentalTable {
         font-size: 13px;
-        min-width: 600px;  /* horizontal scroll if table is wide */
+        min-width: 600px;
     }
 }

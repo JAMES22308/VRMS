@@ -109,3 +109,64 @@
 section{
   margin-left: 250px;
 }
+
+.sidebar-logout #logoutBtn {
+    position: absolute;
+    bottom: 70px;
+    left: 20px;
+    width: 80%; /* full width ng sidebar */
+    padding: 12px 20px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.454);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.sidebar-logout #logoutBtn:hover {
+    background-color: red;
+}
+
+/* Logout Button Responsive */
+/* Logout Button Responsive */
+@media screen and (max-width: 768px) {
+
+    .sidebar-logout #logoutBtn {
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        width: calc(100% - 20px);
+        padding: 10px 15px;
+        font-size: 14px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background-color: rgba(255, 255, 255, 0.454);
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .sidebar.active .sidebar-logout #logoutBtn {
+        display: flex; /* ipakita lang kapag sidebar naka-open */
+    }
+
+    .sidebar-logout #logoutBtn {
+        display: none; /* default hidden sa mobile kung sidebar closed */
+    }
+
+    .sidebar-logout #logoutBtn:hover {
+        background-color: #0067fc;
+    }
+
+    .sidebar-logout #logoutBtn .icons {
+        width: 18px;
+        height: 18px;
+    }
+}

@@ -28,6 +28,14 @@
     <button id="reservations_btn"><span><img class="icons" src="images/icons/car(1).png" alt="">Reservations</span></button>
     <button id="search_btn"><span><img class="icons" src="images/icons/search-interface-symbol.png" alt="">Search</span></button>
     <!-- <button id="jasmine_test_btn"><span><a href="SpecRunner.html" style="color: white; text-decoration: none;">Jasmine Test</a></span></button> -->
+
+    <!-- Logout Button -->
+    <div class="sidebar-logout">
+        <button id="logoutBtn">
+            <img class="icons" src="images/icons/logout.png" alt=""> Logout
+        </button>
+    </div>
+
   </nav>
 </header>
 
@@ -216,7 +224,7 @@
             <label for="totalCost">Total Cost ($)</label>
             <input type="number" id="totalCost" placeholder="Total Cost" readonly>
 
-            <button type="submit" id="addRental">Add Rental</button>
+            <div class="button-add-rental"><button type="submit" id="addRental">Add Rental</button></div>
         </form>
     </div>
 
@@ -272,7 +280,7 @@
             <input type="date" id="reservationDate">
         </div>
 
-        <button type="submit" id="add_reserve_button">Reserve</button>
+        <div class="reserve-button"><button type="submit" id="add_reserve_button">Reserve</button></div>
     </form>
 
     <!-- Reservations Table -->
@@ -297,32 +305,38 @@
 </section>
 
 
-
     <section id="search_page" class="section">
-    <h2 class="h2-search">Search Vehicles</h2>
-    <div class="search-container">
-        <input 
-        type="text" 
-        id="vehicleSearchInput" 
-        placeholder="Search by make, model, location or status..." 
-        />
-    </div>
-    <!-- <button id="search-button">Search</button> -->
+        <h2 class="h2-search">Search Vehicles</h2>
+        
+        <div class="search-container">
+            <div class="form-group">
+                <label for="vehicleSearchInput">Search</label>
+                <input 
+                    type="text" 
+                    id="vehicleSearchInput" 
+                    placeholder="Search by make, model, location or status..." 
+                />
+            </div>
+        </div>
 
-    <table id="searchResultsTable">
-        <thead>
-        <tr>
-            <th>Make</th>
-            <th>Model</th>
-            <th>Location</th>
-            <th>Status</th>
-        </tr>
-        </thead>
-        <tbody id="searchResultsBody">
-        <!-- dynamically filled -->
-        </tbody>
-    </table>
+        <div class="table-container">
+            <table id="searchResultsTable">
+                <thead>
+                    <tr>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="searchResultsBody">
+                    <!-- dynamically filled -->
+                </tbody>
+            </table>
+        </div>
     </section>
+
+
 
 
 
@@ -340,6 +354,18 @@
         window.location.href = "index.html";
     }
 </script>
+
+
+<script>
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("isLoggedIn");
+        window.location.href = "index.html"; // redirect to login page
+    });
+</script>
+</body>
+
 
 
 
