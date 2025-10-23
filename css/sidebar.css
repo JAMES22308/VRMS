@@ -1,108 +1,111 @@
-/* ===== BASE STYLES ===== */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  min-height: 100vh;
-}
-
-/* ===== SIDEBAR ===== */
+/* Sidebar container */
 .sidebar {
-  width: 220px;
-  background-color: #1e293b;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  transition: transform 0.3s ease;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  z-index: 1000;
-}
-
-/* ===== TITLE / BURGER ===== */
-.sidebar-title {
-  font-size: 20px;
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  cursor: pointer;
-  gap: 10px;
-}
-
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.sidebar button {
-  background: #334155;
-  border: none;
-  color: white;
-  padding: 10px;
-  border-radius: 6px;
-  text-align: left;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.sidebar button:hover {
-  background: #475569;
-}
-
-/* ===== PAGE CONTENT ===== */
-.section {
-  flex: 1;
-  padding: 30px;
-  margin-left: 256px; /* push content right (desktop) */
-  transition: margin-left 0.3s ease;
-}
-
-/* ===== BURGER ICON FOR MOBILE ===== */
-#toggleSidebar {
-  display: none; /* hidden sa desktop */
-  background: none;
-  border: none;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-/* ===== MOBILE RESPONSIVE ===== */
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    transform: translateX(-100%); /* hidden */
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 220px;
-  }
+    width: 220px; /* sidebar width */
+    height: 100vh;
+    background-color: #1e1e2f; /* dark background */
+    padding: 20px 10px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+.icons{
+  height: 20px;
+  width: 20px;
+  filter: invert(1);
+  margin-right: 10px;
+}
 
-  .sidebar.active {
-    transform: translateX(0); /* visible */
-  }
+.action-icons{
+    height: 20px;
+    width: 20px;
+    background: none;
+}
 
-  /* content full width on mobile */
-  .section {
-    margin-left: 0;
-    padding: 20px;
-  }
+/* Sidebar title */
+.sidebar-title {
+    color: #fff;
+    text-align: start;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 30px;
+    display: flex;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-  /* show burger icon in mobile */
-  .sidebar-title::before {
-    content: "☰";
-    font-size: 22px;
-    margin-right: 8px;
-  }
+
+/* Sidebar nav buttons */
+.sidebar nav button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px 20px;
+    margin: 5px 0;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sidebar nav button span {
+  display: flex;
+    margin-left: 10px;
+    width: 170px;
+}
+
+/* Hover / active state */
+.sidebar nav button:hover {
+    background-color: #0067fc;
+    border-left: 2px solid white;
+
+}
+
+.sidebar nav button.active {
+    background-color: #6c63ff;
+    color: #fff;
+}
+
+/* Mobile burger button */
+#mobileBurger {
+    display: none; /* hidden on desktop */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    background-color: #6c63ff;
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Responsive for smaller screens */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        left: -240px; /* hide sidebar by default */
+    }
+
+    .sidebar.active {
+        left: 0; /* show sidebar when active */
+    }
+
+    #mobileBurger {
+        display: block; /* show burger on mobile */
+    }
+}
+
+
+section{
+  margin-left: 250px;
 }

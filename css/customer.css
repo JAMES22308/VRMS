@@ -1,278 +1,213 @@
-/* Customer Form */
+/* Customer section main layout */
+#customers_page {
+  margin-left: 250px;
+  padding: 30px;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fb;
+  min-height: 100vh;
+  color: #222;
+}
+
+.h2-customer {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #1e1e2f;
+  border-left: 5px solid#0067fc;
+  padding-left: 10px;
+}
+
+/* Customer form container */
 .customer-form {
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    font-family: Arial, sans-serif;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
 }
 
-
-.h2-customer{
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(67, 67, 234);
-    margin-bottom: 20px;
+/* Two-column form layout */
+.form-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-
-.customer-form form {
-    display: flex;
-    flex-direction: column;
+.form-column {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Inputs and labels */
 .customer-form label {
-    font-weight: bold;
-    margin: 5px 0 2px 0;
-    font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-weight: 500;
 }
 
 .customer-form input,
 .customer-form select {
-    padding: 10px;
-    margin-bottom: 12px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border 0.3s ease;
 }
 
-/* Add Button Gradient only */
-.customer-form button#addCustomer {
-    padding: 10px;
-    background: linear-gradient(90deg, #0066ff, #00b3ff);
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.customer-form input:focus,
+.customer-form select:focus {
+  border-color: #6c63ff;
+  outline: none;
 }
 
-.customer-form button#addCustomer:hover {
-    background: linear-gradient(90deg, #0052cc, #0099ff);
+/* Add button */
+.form-button {
+  margin-top: 25px;
+  text-align: center;
 }
 
-
-/* Customer Table */
-#customerTable {
-    width: 95%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
+#addCustomer {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-#customerTable th,
-#customerTable td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-    font-size: 14px;
+#addCustomer:hover {
+  background-color: #574bff;
 }
 
-#customerTable th {
-    background-color: #87ceeb; /* sky blue header */
-    color: white;
-    font-weight: bold;
-}
-
-#customerTable tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-#customerTable tr:hover {
-    background-color: #e0f0ff;
-}
-
-/* Responsive for tablets and phones */
-@media (max-width: 768px) {
-    .customer-form {
-        padding: 15px;
-    }
-
-    .customer-form input,
-    .customer-form select,
-    .customer-form button {
-        font-size: 13px;
-        padding: 8px;
-    }
-
-    #customerTable th,
-    #customerTable td {
-        font-size: 12px;
-        padding: 8px;
-    }
-}
-
-@media (max-width: 480px) {
-    .customer-form {
-        width: 90%;
-        padding: 10px;
-    }
-
-    .customer-form input,
-    .customer-form select,
-    .customer-form button {
-        font-size: 12px;
-        padding: 6px;
-    }
-
-    #customerTable {
-        width: 100%;
-        font-size: 11px;
-    }
-
-    #customerTable th,
-    #customerTable td {
-        padding: 6px;
-    }
-}
-
-
-/* Customer Form */
-.customer-form {
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    font-family: Arial, sans-serif;
-}
-
-.customer-form form {
-    display: flex;
-    flex-direction: column;
-}
-
-.customer-form label {
-    font-weight: bold;
-    margin: 5px 0 2px 0;
-    font-size: 14px;
-}
-
-.customer-form input,
-.customer-form select {
-    padding: 10px;
-    margin-bottom: 12px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-/* Limit the width of select dropdown to fit form */
-.customer-form select {
-    max-width: 100%;
-}
-
-/* Button */
-.customer-form button {
-    padding: 10px;
-    background-color: rgb(67, 67, 234); /* mild orange */
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.customer-form button:hover {
-    background-color: rgb(111, 111, 227);
-}
-
-/* Table container for horizontal scroll */
+/* Table styling */
 .table-container {
-    width: 95%;
-    margin: 20px auto;
-    overflow-x: auto;
+  overflow-x: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: 0 auto; 
+  box-sizing: border-box;
 }
 
+
 #customerTable {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    min-width: 800px; /* ensures table can scroll if smaller screen */
+  width: 100%;
+  border-collapse: collapse;
 }
 
 #customerTable th,
 #customerTable td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-    font-size: 14px;
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
 #customerTable th {
-    background-color: #bbbfeb; /* sky blue header */
-    color: white;
-    font-weight: bold;
-}
-
-#customerTable tr:nth-child(even) {
-    background-color: #f9f9f9;
+  color: black;
 }
 
 #customerTable tr:hover {
-    background-color: #e0f0ff;
+  background-color: #f5f5f5;
 }
 
-/* Responsive for tablets */
-@media (max-width: 768px) {
-    .customer-form {
-        padding: 15px;
-    }
 
-    .customer-form input,
-    .customer-form select,
-    .customer-form button {
-        font-size: 13px;
-        padding: 8px;
-    }
+/* ==============================
+   RESPONSIVE DESIGN (MOBILE)
+   ============================== */
+@media screen and (max-width: 768px) {
 
-    #customerTable th,
-    #customerTable td {
-        font-size: 12px;
-        padding: 8px;
-    }
-}
+  /* Main section layout */
+  #customers_page {
+    margin-left: 0 !important; /* remove sidebar offset */
+    padding: 20px;
+    min-height: 100vh;
+  }
 
-/* Responsive for phones */
-@media (max-width: 480px) {
-    .customer-form {
-        width: 90%;
-        padding: 10px;
-    }
+  /* Title adjust */
+  .h2-customer {
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-left: none;
+    padding-left: 0;
+  }
 
-    .customer-form input,
-    .customer-form select,
-    .customer-form button {
-        font-size: 12px;
-        padding: 6px;
-    }
+  /* Form adjustments */
+  .customer-form {
+    padding: 15px;
+  }
 
-    #customerTable {
-        min-width: 600px; 
-        font-size: 11px;
-    }
+  .form-grid {
+    flex-direction: column; /* stack inputs vertically */
+    gap: 20px;
+  }
 
-    #customerTable th,
-    #customerTable td {
-        padding: 6px;
-    }
+  .form-column {
+    min-width: 100%;
+  }
 
-    .customer-form input[type="date"] {
-        font-size: 11px;
-        width: 97%;
-        padding: 6px;
-    }
+  /* Button full width */
+  .form-button {
+    text-align: center;
+  }
+
+  #addCustomer {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  /* Table container full width */
+  .table-container {
+    padding: 10px;
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  #customerTable {
+    font-size: 14px;
+    min-width: 700px; /* allows horizontal scroll if needed */
+  }
+
+  .table-container {
+    overflow-x: auto; /* scroll if too wide */
+  }
+
+  /* Hide sidebar unless toggled */
+  .sidebar {
+    left: -240px; /* hide sidebar */
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.active {
+    left: 0; /* show sidebar when toggled */
+  }
+
+  /* Adjust burger button */
+  #mobileBurger {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1200;
+    background-color: #0067fc;
+    border: none;
+    color: white;
+    font-size: 22px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  /* Make sections occupy full screen */
+  section {
+    margin-left: 0 !important;
+  }
 }
