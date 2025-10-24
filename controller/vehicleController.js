@@ -38,6 +38,18 @@ import { DashboardView } from "../views/dashboardView.js";
         
     }
 
+     clearForm() {
+        document.getElementById("make").value = "";
+        document.getElementById("model").value = "";
+        document.getElementById("year").value = "";
+        document.getElementById("registrationNumber").value = "";
+        document.getElementById("vehicle-type").value;
+        document.getElementById("dailyRate").value = "";
+        document.getElementById("mileage").value = "";
+        document.getElementById("location").value = "";
+        document.getElementById("status").value;
+    }
+
     bindAdd() {
         const addVehicle = document.getElementById("addVehicle");
 
@@ -66,6 +78,7 @@ import { DashboardView } from "../views/dashboardView.js";
                 console.log("Vehicle added:", this.vehicleModel.getAllVehicle());
 
                 this.updateView()
+                this.clearForm()
 
 
             } else {
@@ -76,6 +89,7 @@ import { DashboardView } from "../views/dashboardView.js";
 
 
                 this.updateView()
+                this.clearForm()
 
 
             }

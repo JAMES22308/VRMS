@@ -45,6 +45,16 @@ class Controller{
         
     }
 
+    clearForm() {
+        document.getElementById("fullName").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("address").value = "";
+        document.getElementById("customer-type").value;
+        document.getElementById("date").value = "";
+    }
+
+
     add(){
         const form = document.getElementById("form")
         form.onsubmit = (e)=>{
@@ -59,6 +69,7 @@ class Controller{
                 this.model.addCustomer(customer)
 
                 this.updateView()
+                this.clearForm()
 
 
                 
@@ -72,6 +83,8 @@ class Controller{
 
 
                 this.updateView()
+                this.clearForm()
+
 
 
             }

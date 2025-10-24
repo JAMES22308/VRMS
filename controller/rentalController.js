@@ -62,6 +62,16 @@ class RentalController {
     }
 
 
+
+     clearForm() {
+        document.getElementById("rentalCustomer").value;
+        document.getElementById("rentalVehicle").value;
+        document.getElementById("rentalStartDate").value = "";
+        document.getElementById("rentalEndDate").value = "";
+        document.getElementById("totalCost").value = "";
+    }
+
+
     bindAddRental() {
         const form = document.getElementById("rentalForm");
 
@@ -96,6 +106,8 @@ class RentalController {
                 this.dashboardView.totalRentals(this.rentalModel.getTotalRentals())
 
                 this.dashboardView.getTotalAvailableVehicles(this.vehicleModel.getTotalAvailable())
+
+                this.clearForm()
             }
         };
     }
@@ -163,7 +175,9 @@ class RentalController {
 
                 this.dashboardView.totalRevenue(this.rentalModel.getTotalRevenue())
 
-                this.dashboardView.totalRentals(this.rentalModel.getTotalRentals())
+                
+
+                this.clearForm()
             }
         });
     }
@@ -228,6 +242,9 @@ class RentalController {
                 this.dashboardView.displayAllValues(this.rentalModel.getAllRentals())
 
                 this.dashboardView.getTotalAvailableVehicles(this.vehicleModel.getTotalAvailable())
+                this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle())
+
+                this.dashboardView.totalRevenue(this.rentalModel.getTotalRevenue())
             }
         }
     });
