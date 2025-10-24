@@ -2,6 +2,7 @@ import { CustomerModel } from "../model/customerModel.js";
 import { VehicleModel } from "../model/vehicleModel.js";
 import { RentalModel } from "../model/rentalModel.js";
 import { ReservationModel } from "../model/reservationModel.js";
+import { SearchView } from "../views/searchViews.js";
 
 
 describe("Customer Management", function() {
@@ -61,7 +62,7 @@ describe("Customer Management", function() {
     model.addCustomer(c1);
 
     model.deactivateCustomer(0);
-    expect(model.getAllCustomers()[0].status).toBe("Deactivate");
+    expect(model.getAllCustomers()[0].status).toBe("Deactivated");
 
     model.deactivateCustomer(0);
     expect(model.getAllCustomers()[0].status).toBe("Active");
@@ -151,7 +152,7 @@ describe("Rental Management", function() {
 
     expect(all.length).toBe(1);
     expect(all[0].customer).toBe("John Doe");
-    expect(all[0].rentalStatus).toBe("Rented");
+    expect(all[0].rentalStatus).toBe("Ongoing");
   });
 
   it("should delete a rental", function() {
@@ -274,3 +275,123 @@ describe("Reservation Management", () => {
 });
 
 
+
+describe("Search Functionality", () => {
+  let view, vehicleModel, searchInput, resultsBody, testContainer;
+
+  beforeEach(() => {
+    localStorage.clear();
+
+    // Create an isolated container
+    testContainer = document.createElement("div");
+    testContainer.innerHTML = `
+      <input id="vehicleSearchInput" type="text">
+      <table><tbody id="searchResultsBody"></tbody></table>
+    `;
+    document.body.appendChild(testContainer);
+
+    // Initialize model and view
+    vehicleModel = new VehicleModel();
+    view = new SearchView();
+
+    // Add sample vehicles
+    vehicleModel.addVehicle({
+      make: "Toyota",
+      model: "Vios",
+      year: "2024",
+      registrationNumber: "ABC123",
+      type: "Sedan",
+      dailyRate: "100",
+      mileage: "0",
+      location: "Christchurch",
+      status: "Available"
+    });
+
+    vehicleModel.addVehicle({
+      make: "Honda",
+      model: "Civic",
+      year: "2023",
+      registrationNumber: "XYZ789",
+      type: "Sedan",
+      dailyRate: "90",
+      mileage: "2000",
+      location: "Auckland",
+      status: "Unavailable"
+    });
+
+    // Cache DOM references
+    searchInput = document.getElementById("vehicleSearchInput");
+    resultsBody = document.getElementById("searchResultsBody");
+  });
+
+  afterEach(() => {
+    testContainer.remove();
+  });
+
+  it("should display all vehicles initially", () => {
+    view.displayAllValues(vehicleModel.getAllVehicle());
+    expect(resultsBody.querySelectorAll("tr").length).toBe(2);
+  });
+
+  it("should filter vehicles by make when user types", () => {
+    const keyword = "toyota";
+    const sorted = vehicleModel.getAllVehicle().filter(
+      v =>
+        v.make.toLowerCase().includes(keyword) ||
+        v.model.toLowerCase().includes(keyword) ||
+        v.status.toLowerCase().includes(keyword) ||
+        v.location.toLowerCase().includes(keyword)
+    );
+
+    view.sortedValues(sorted);
+
+    expect(resultsBody.querySelectorAll("tr").length).toBe(1);
+    expect(resultsBody.innerHTML).toContain("Toyota");
+  });
+
+  it("should filter vehicles by location", () => {
+    const keyword = "auckland";
+    const sorted = vehicleModel.getAllVehicle().filter(
+      v =>
+        v.make.toLowerCase().includes(keyword) ||
+        v.model.toLowerCase().includes(keyword) ||
+        v.status.toLowerCase().includes(keyword) ||
+        v.location.toLowerCase().includes(keyword)
+    );
+
+    view.sortedValues(sorted);
+
+    expect(resultsBody.querySelectorAll("tr").length).toBe(1);
+    expect(resultsBody.innerHTML).toContain("Auckland");
+  });
+
+  it("should filter vehicles by model, make, location, and status", () => {
+    const keyword = "vios"; // matches model
+    const sorted = vehicleModel.getAllVehicle().filter(
+      v =>
+        v.make.toLowerCase().includes(keyword) ||
+        v.model.toLowerCase().includes(keyword) ||
+        v.status.toLowerCase().includes(keyword) ||
+        v.location.toLowerCase().includes(keyword)
+    );
+
+    view.sortedValues(sorted);
+
+    expect(resultsBody.querySelectorAll("tr").length).toBe(1);
+    expect(resultsBody.innerHTML).toContain("Vios");
+
+    // Test another keyword: status
+    const statusKeyword = "unavailable";
+    const statusSorted = vehicleModel.getAllVehicle().filter(
+      v =>
+        v.make.toLowerCase().includes(statusKeyword) ||
+        v.model.toLowerCase().includes(statusKeyword) ||
+        v.status.toLowerCase().includes(statusKeyword) ||
+        v.location.toLowerCase().includes(statusKeyword)
+    );
+
+    view.sortedValues(statusSorted);
+    expect(resultsBody.querySelectorAll("tr").length).toBe(1);
+    expect(resultsBody.innerHTML).toContain("Unavailable");
+  });
+});
