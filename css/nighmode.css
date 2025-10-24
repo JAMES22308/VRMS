@@ -1,0 +1,321 @@
+/* === Base Dark Mode === */
+body.dark-mode {
+  color: #ffffff;
+  background-color: #1b1c30; /* main dark background */
+  transition: all 0.3s ease-in-out;
+}
+
+/* === Sidebar === */
+body.dark-mode .sidebar {
+  background-color: #222339;
+  color: #fff;
+}
+
+body.dark-mode .sidebar button.preserve-color {
+  background: transparent;
+  color: #e0e0e0;
+}
+
+body.dark-mode .sidebar button.preserve-color:hover {
+  background-color: #0067fc;
+}
+
+/* === Page Backgrounds (All Pages) === */
+body.dark-mode #dashboard_page,
+body.dark-mode #customers_page,
+body.dark-mode #vehicles_page,
+body.dark-mode #rentals_page,
+body.dark-mode #reservations_page,
+body.dark-mode #search_page {
+  background-color: #1b1c30;
+  transition: all 0.3s ease-in-out;
+}
+
+/* === Universal Dark Containers === */
+body.dark-mode .container,
+body.dark-mode .content,
+body.dark-mode .section,
+body.dark-mode .wrapper,
+body.dark-mode .form-container,
+body.dark-mode .form-wrapper,
+body.dark-mode form {
+  background-color: #1b1c30 !important;
+  color: #ffffff !important;
+  border-color: #333;
+}
+
+body.dark-mode .table-container {
+  background-color: #26273b;
+}
+
+/* === Cards === */
+body.dark-mode .card {
+  background-color: #26273b;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+/* === Forms & Inputs === */
+body.dark-mode form,
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #26273b !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #bdbdbd;
+}
+
+body.dark-mode label {
+  color: #ffffffd6 !important;
+}
+
+/* === Headings & Text === */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode span,
+body.dark-mode td,
+body.dark-mode th {
+  color: #ffffffd6 !important;
+}
+
+body.dark-mode p {
+  color: #0067fc;
+}
+
+/* === Numbers (Keep Blue) === */
+body.dark-mode .number,
+body.dark-mode .stats-number,
+body.dark-mode .count,
+body.dark-mode .vehicle-count,
+body.dark-mode .customer-count {
+  color: #0067fc !important;
+}
+
+/* === Revenue / Money (Keep Yellow) === */
+body.dark-mode .revenue,
+body.dark-mode .income,
+body.dark-mode .money,
+body.dark-mode .price {
+  color: #FFD700 !important;
+}
+
+/* === Icons === */
+body.dark-mode img.icons,
+body.dark-mode img.icons-2,
+body.dark-mode .icon {
+  filter: brightness(0) invert(1);
+}
+
+/* === Tables === */
+body.dark-mode table {
+  background-color: #26273b;
+  color: #fff;
+  border-collapse: collapse;
+}
+
+body.dark-mode table th {
+  background-color: #2f3045;
+  color: #fff;
+  border: none;
+}
+
+body.dark-mode table td {
+  background-color: #26273b;
+  border: none;
+}
+
+/* === Buttons (Preserve colors for all) === */
+button.preserve-color {
+  background-color: #0067fc;
+  color: #fff;
+  border: none;
+  transition: 0.3s ease;
+}
+
+button.preserve-color:hover {
+  background-color: #0050c9;
+}
+
+/* === Search Input === */
+body.dark-mode #vehicleSearchInput {
+  background-color: #26273b;
+  color: #fff;
+}
+
+body.dark-mode .dashboard-table-container {
+  background-color: #26273b;
+}
+
+body.dark-mode #recentRentalsTable td.total-cost {
+  color: #FFD700;
+}
+
+/* === Logout Button === */
+body.dark-mode #logoutBtn.preserve-color {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+body.dark-mode #logoutBtn.preserve-color:hover {
+  background-color: red;
+  color: #fff;
+}
+
+/* === Toggle Switch === */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+/* === Forms === */
+body.dark-mode .customer-form,
+body.dark-mode .vehicle-form,
+body.dark-mode .rental-form,
+body.dark-mode #search_page .search-container,
+body.dark-mode #search_page .form-group,
+body.dark-mode #search_page input#vehicleSearchInput {
+  background-color: #26273b;
+  color: #ffffffd6;
+}
+
+/* === Vehicle Table === */
+body.dark-mode #vehicleTable th {
+  background-color: #2f3045;
+  border: none;
+}
+
+body.dark-mode #vehicleTable td {
+  background-color: #26273b;
+  border: none;
+}
+
+/* === Customer Table === */
+body.dark-mode #customerTable th {
+  background-color: #2f3045;
+  border: none;
+}
+
+body.dark-mode #customerTable td {
+  background-color: #26273b;
+  border: none;
+}
+
+/* === Rental Table === */
+body.dark-mode #rentalTable th {
+  background-color: #2f3045;
+  border: none;
+}
+
+body.dark-mode #rentalTable td {
+  background-color: #26273b;
+  border: none;
+}
+
+/* === Reservations Table === */
+body.dark-mode #reservations_page .table-container {
+  background-color: #26273b;
+  color: #ffffffd6;
+  border: 1px solid #333;
+}
+
+body.dark-mode #reservations_page table th {
+  background-color: #2f3045;
+  color: #ffffffd6;
+  border: none;
+}
+
+body.dark-mode #reservations_page table td {
+  background-color: #26273b;
+  color: #ffffffd6;
+  border: none;
+}
+
+/* === Search Vehicles Table === */
+body.dark-mode #search_page {
+  background-color: #1b1c30;
+  color: #ffffffd6;
+}
+
+body.dark-mode #search_page .table-container {
+  background-color: #26273b;
+}
+
+body.dark-mode #search_page table {
+  background-color: #26273b;
+  color: #ffffffd6;
+  border-collapse: collapse;
+}
+
+body.dark-mode #search_page table th {
+  background-color: #2f3045;
+  color: #ffffffd6;
+  border: none;
+}
+
+body.dark-mode #search_page table td {
+  background-color: #26273b;
+  color: #ffffffd6;
+  border: none;
+}
+
+
+/* RentalID column (button) */
+body.dark-mode #recentRentalsTable td button {
+    background-color: #0067fc; /* bright blue button */
+    color: #fff;               /* white text */
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Total Cost column - Night Mode */
+body.dark-mode #recentRentalsTable td.total-cost {
+    background-color: #26273b !important; 
+    color: #FFD700 !important;           
+}
+

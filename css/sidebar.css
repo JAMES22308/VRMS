@@ -92,6 +92,11 @@
 
 /* Responsive for smaller screens */
 @media screen and (max-width: 768px) {
+
+    #dashboard_page h2 {
+        text-align: center;
+        border: none;
+    }
     .sidebar {
         left: -240px; /* hide sidebar by default */
     }
@@ -103,6 +108,7 @@
     #mobileBurger {
         display: block; /* show burger on mobile */
     }
+ 
 }
 
 
@@ -112,7 +118,7 @@ section{
 
 .sidebar-logout #logoutBtn {
     position: absolute;
-    bottom: 70px;
+    bottom: 60px;
     left: 20px;
     width: 80%; /* full width ng sidebar */
     padding: 12px 20px;
@@ -131,42 +137,60 @@ section{
     background-color: red;
 }
 
-/* Logout Button Responsive */
-/* Logout Button Responsive */
+/* Mobile burger button placement */
 @media screen and (max-width: 768px) {
+    #mobileBurger {
+        display: block; /* always visible */
+        top: 5px;
+        left: 10px;
+        z-index: 1200; /* above sidebar */
+    }
+
+    /* Sidebar hidden by default on mobile */
+    .sidebar {
+        left: -240px; /* hide sidebar by default */
+    }
+
+    .sidebar.active {
+        left: 0; /* show sidebar when active */
+    }
+
+    /* Logout button hidden by default on mobile */
+    .sidebar-logout #logoutBtn {
+        display: none;
+    }
+
+    /* Show logout button only when sidebar is active */
+    .sidebar.active .sidebar-logout #logoutBtn {
+        display: flex;
+    }
+
+    /* Nightmode toggle placement */
+     .theme-toggle {
+        top: 15px;    /* desired distance from top on desktop */
+        right: 15px;  /* distance from right on desktop */
+    }
 
     .sidebar-logout #logoutBtn {
         position: absolute;
-        bottom: 20px;
-        left: 10px;
-        width: calc(100% - 20px);
-        padding: 10px 15px;
-        font-size: 14px;
-        border-radius: 6px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background-color: rgba(255, 255, 255, 0.454);
-        color: white;
-        border: none;
-        cursor: pointer;
-        transition: background 0.3s ease;
+        bottom: 170px;
+        left: 20px;
     }
+}
 
-    .sidebar.active .sidebar-logout #logoutBtn {
-        display: flex; /* ipakita lang kapag sidebar naka-open */
-    }
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 25px;
+    z-index: 1300; 
+}
 
-    .sidebar-logout #logoutBtn {
-        display: none; /* default hidden sa mobile kung sidebar closed */
-    }
+/* iPad Pro Max */
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
 
-    .sidebar-logout #logoutBtn:hover {
-        background-color: #0067fc;
-    }
-
-    .sidebar-logout #logoutBtn .icons {
-        width: 18px;
-        height: 18px;
-    }
+.sidebar-logout #logoutBtn {
+    position: absolute;
+    bottom: 140px;
+    left: 20px;
+}
 }

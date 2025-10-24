@@ -9,7 +9,8 @@ export class DashboardView{
             html += `<td>${allRentals[i].rentalVehicle}</td>`
             html += `<td>${allRentals[i].rentalStartDate}</td>`
             html += `<td>${allRentals[i].rentalEndDate}</td>`
-            html += `<td style="color: green">$${parseFloat(allRentals[i].totalCost).toFixed(2)}</td>`
+            html += `<td class="total-cost">+$${parseFloat(allRentals[i].totalCost).toFixed(2)}</td>`;
+
 
             html += `</tr>`
         }

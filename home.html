@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/nighmode.css">
     <link class="favicon-logo" rel="icon" type="image/png" href="images/icons/car-rent.png">
 
 </head>
@@ -32,6 +33,14 @@
     <button id="reservations_btn"><span><img class="icons" src="images/icons/car(1).png" alt="">Reservations</span></button>
     <button id="search_btn"><span><img class="icons" src="images/icons/search-interface-symbol.png" alt="">Search</span></button>
     <!-- <button id="jasmine_test_btn"><span><a href="SpecRunner.html" style="color: white; text-decoration: none;">Jasmine Test</a></span></button> -->
+
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
 
     <!-- Logout Button -->
     <div class="sidebar-logout">
@@ -78,7 +87,7 @@
         <div class="card">
             <img class="icons-2" src="images/icons/income_9746543.png" alt="">
             <h3>Total Revenue</h3>
-            <p style="color: rgb(74, 207, 74);" id="totalRevenue">0</p>
+            <p style="color: #FFD700" id="totalRevenue">0</p>
         </div>
     </div>
 
@@ -87,12 +96,12 @@
     <table id="recentRentalsTable">
         <thead>
             <tr>
-                <th>RentalID</th>
+                <th id="rentalID-th">RentalID</th>
                 <th>Customer</th>
                 <th>Vehicle</th>
                 <th>Start Date</th>
                 <th>End Date</th>
-                <th>Total Cost</th>
+                <th id="total-cost-th">Total Cost</th>
             </tr>
         </thead>
         <tbody id="recentRentalsBody">
@@ -440,6 +449,37 @@
     sidebar.classList.toggle("active");
     });
     </script>
+
+
+
+
+
+
+<script>
+  const toggle = document.getElementById("themeToggle");
+  const body = document.body;
+
+  // Load saved preference
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-mode");
+    toggle.checked = true;
+  }
+
+  toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+      body.classList.add("dark-mode");
+      localStorage.setItem("theme", "dark");
+    } else {
+      body.classList.remove("dark-mode");
+      localStorage.setItem("theme", "light");
+    }
+  });
+</script>
+
+
+
+
+
 
 
 
