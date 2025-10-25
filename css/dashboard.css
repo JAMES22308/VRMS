@@ -120,3 +120,56 @@
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
+
+.dashboard-options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.dashboard-options h3 {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+    transition: color 0.3s;
+}
+
+.dashboard-options select {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dashboard-options select:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0,123,255,0.3);
+}
+
+/* 🌙 Dark Mode */
+.dark-mode .dashboard-options {
+    color: white;
+}
+
+.dark-mode .dashboard-options h3 {
+    color: #f1f1f1;
+}
+
+
+
+.dark-mode .dashboard-options select:hover {
+    border-color: #4da3ff;
+    box-shadow: 0 0 4px rgba(77,163,255,0.3);
+}

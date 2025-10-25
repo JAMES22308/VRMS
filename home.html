@@ -92,7 +92,15 @@
     </div>
 
     <div class="dashboard-table-container">
-    <h3>Recent Rentals</h3>
+    <div class="dashboard-options">
+        <h3>Recent Rentals</h3>
+        <select name="" id="select-option-dashboard">
+            <option value="all">all transactions</option>
+            <option value="high">sort(High to Low)</option>
+            <option value="low">sort(Low to High)</option>
+            <option value="az">sort(a to z)</option>
+        </select>
+    </div>
     <table id="recentRentalsTable">
         <thead>
             <tr>
@@ -418,6 +426,7 @@
     <script type="module" src="controller/rentalController.js"></script>
     <script type="module" src="controller/reservationController.js"></script>
     <script type="module" src="controller/searchController.js"></script>
+    <script type="module" src="controller/dashboardController.js"></script>
 
 <script>
     const isLoggedIn = localStorage.getItem("isLoggedIn");

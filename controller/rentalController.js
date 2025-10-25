@@ -1,4 +1,4 @@
-import { RentalModel } from "../model/rentalModel.js";
+// import { RentalModel } from "../model/rentalModel.js";
 import { RentalView } from "../views/rentalView.js";
 import { CustomerModel } from "../model/customerModel.js";
 import { VehicleView } from "../views/vehicleView.js";
@@ -6,11 +6,12 @@ import { ReservationView } from "../views/reservationView.js";
 import { SearchView } from "../views/searchViews.js";
 import { vehicleSharedModel } from "../model/sharedModel.js";
 import { DashboardView } from "../views/dashboardView.js";
+import { rentalSharedModel } from "../model/sharedModel.js";
 
 
 class RentalController {
     constructor() {
-        this.rentalModel = new RentalModel();
+        this.rentalModel = rentalSharedModel;
         this.rentalView = new RentalView();
         this.customerModel = new CustomerModel();
         this.vehicleModel = vehicleSharedModel;
@@ -245,6 +246,7 @@ class RentalController {
                 this.reservationView.vehicleValues(this.vehicleModel.getAllVehicle())
 
                 this.dashboardView.totalRevenue(this.rentalModel.getTotalRevenue())
+                console.log(index)
             }
         }
     });
