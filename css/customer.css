@@ -1,11 +1,10 @@
 /* Customer section main layout */
 #customers_page {
-  margin-left: 250px;
-  padding: 30px;
-  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fb;
-  min-height: 100vh;
-  color: #222;
+    margin-left: 250px;
+    padding: 30px;
+    background-color: #f8f9fb;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
 }
 
 .h2-customer {
@@ -16,6 +15,14 @@
   border-left: 5px solid#0067fc;
   padding-left: 10px;
 }
+
+#customerTable th,
+#customerTable td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
 
 /* Customer form container */
 .customer-form {
@@ -51,7 +58,7 @@
 .customer-form input,
 .customer-form select {
   padding: 10px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc70;
   border-radius: 8px;
   font-size: 15px;
   transition: border 0.3s ease;
@@ -77,8 +84,18 @@
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, box-shadow 0.3s;
 }
+
+.dark-mode #addCustomer {
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+}
+
+.dark-mode #addCustomer:hover {
+  background-color: #7a73ff;
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.8);
+}
+
 
 #addCustomer:hover {
   background-color: #574bff;
@@ -103,13 +120,15 @@
 
 #customerTable th,
 #customerTable td {
-  text-align: left;
+  text-align: center;
   padding: 10px;
   border-bottom: 1px solid #ddd;
 }
 
 #customerTable th {
   color: black;
+  font-weight: 600;
+  background-color: #f0f2f8;
 }
 
 #customerTable tr:hover {
@@ -212,45 +231,70 @@
   }
 }
 
-/* Buttons in customer table */
+/* ====== NORMAL (Light Mode) ====== */
 .deactivate-btn {
-    background-color: orange;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .deactivate-btn:hover {
-    background-color: darkorange;
+  background-color: darkorange;
 }
 
 .update-btn {
-    background-color: #4caf50; /* green */
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  background-color: #4caf50; /* green */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .update-btn:hover {
-    background-color: #388e3c; /* darker green */
+  background-color: #388e3c; /* darker green */
 }
 
 .delete-btn {
-    background-color: #f44336; /* red */
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  background-color: #f44336; /* red */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .delete-btn:hover {
-    background-color: #d32f2f; /* darker red */
+  background-color: #d32f2f; /* darker red */
+}
+
+/* ====== DARK MODE GLOW EFFECT ====== */
+.dark-mode .deactivate-btn {
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
+
+.dark-mode .deactivate-btn:hover {
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.8);
+}
+
+.dark-mode .update-btn {
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.dark-mode .update-btn:hover {
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+}
+
+.dark-mode .delete-btn {
+  box-shadow: 0 0 10px rgba(244, 67, 54, 0.5);
+}
+
+.dark-mode .delete-btn:hover {
+  box-shadow: 0 0 20px rgba(244, 67, 54, 0.8);
 }

@@ -4,10 +4,9 @@
 #rentals_page {
     margin-left: 250px;
     padding: 30px;
-    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fb;
     min-height: 100vh;
-    color: #222;
+    font-family: 'Poppins', sans-serif;
 }
 
 .h2-rental {
@@ -43,7 +42,7 @@
 .rental-form input,
 .rental-form select {
     padding: 10px 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc7a;
     border-radius: 8px;
     font-size: 15px;
     width: 100%; /* full width */
@@ -57,7 +56,6 @@
     outline: none;
 }
 
-/* Add button */
 #addRental {
     background-color: #6c63ff;
     color: white;
@@ -66,7 +64,7 @@
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, box-shadow 0.3s;
     margin-top: 10px;
     width: 150px;
 }
@@ -74,6 +72,16 @@
 #addRental:hover {
     background-color: #574bff;
 }
+
+/* Glow effect for dark mode */
+.dark-mode #addRental {
+    box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+}
+
+.dark-mode #addRental:hover {
+    box-shadow: 0 0 20px rgba(108, 99, 255, 0.8);
+}
+
 
 .button-add-rental{
     text-align: center;
@@ -97,7 +105,7 @@
 
 #rentalTable th,
 #rentalTable td {
-    text-align: left;
+    text-align: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
@@ -194,6 +202,8 @@
     }
 }
 
+
+
 /* Rentals table buttons */
 .rentals_delete-btn {
     background-color: #f44336; /* red */
@@ -202,7 +212,7 @@
     padding: 6px 12px;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .rentals_delete-btn:hover {
@@ -216,9 +226,26 @@
     padding: 6px 12px;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .return_btn:hover {
     background-color: #388e3c; /* darker green */
+}
+
+/* Glow effect for dark mode */
+.dark-mode .rentals_delete-btn {
+    box-shadow: 0 0 10px rgba(244, 67, 54, 0.5);
+}
+
+.dark-mode .rentals_delete-btn:hover {
+    box-shadow: 0 0 18px rgba(244, 67, 54, 0.8);
+}
+
+.dark-mode .return_btn {
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.dark-mode .return_btn:hover {
+    box-shadow: 0 0 18px rgba(76, 175, 80, 0.8);
 }

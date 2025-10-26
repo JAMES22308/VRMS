@@ -1,11 +1,10 @@
 /* Vehicle Section */
 #vehicles_page {
-    margin-left: 250px;
+   margin-left: 250px;
     padding: 30px;
-    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fb;
     min-height: 100vh;
-    color: #222;
+    font-family: 'Poppins', sans-serif;
 }
 
 .h2-vehicle {
@@ -49,7 +48,7 @@
 .vehicle-form input,
 .vehicle-form select {
     padding: 10px 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc86;
     border-radius: 8px;
     font-size: 15px;
     transition: border 0.3s ease;
@@ -61,20 +60,32 @@
     outline: none;
 }
 
+/* ===== Light Mode (Normal) ===== */
 #addVehicle {
-    background-color: #6c63ff;
-    color: white;
-    border: none;
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 #addVehicle:hover {
-    background-color: #574bff;
+  background-color: #574bff;
 }
+
+/* ===== Dark Mode (Glowing Effect) ===== */
+.dark-mode #addVehicle {
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+}
+
+.dark-mode #addVehicle:hover {
+  background-color: #7a73ff;
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.8);
+}
+
 
 /* Vehicle table (full width) */
 .table-container {
@@ -94,7 +105,7 @@
 
 #vehicleTable th,
 #vehicleTable td {
-    text-align: left;
+    text-align: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
@@ -158,32 +169,49 @@
     }
 }
 
-/* Vehicle table buttons */
+/* ===== Light Mode (Normal Style) ===== */
 .vehicle_update_btn {
-    background-color: #4caf50; /* green */
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  background-color: #4caf50; /* green */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .vehicle_update_btn:hover {
-    background-color: #388e3c; /* darker green */
+  background-color: #388e3c; /* darker green */
 }
 
 .vehicle_delete_btn {
-    background-color: #f44336; /* red */
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  background-color: #f44336; /* red */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .vehicle_delete_btn:hover {
-    background-color: #d32f2f; /* darker red */
+  background-color: #d32f2f; /* darker red */
+}
+
+/* ===== Dark Mode (Glowing Effect) ===== */
+.dark-mode .vehicle_update_btn {
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.dark-mode .vehicle_update_btn:hover {
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+}
+
+.dark-mode .vehicle_delete_btn {
+  box-shadow: 0 0 10px rgba(244, 67, 54, 0.5);
+}
+
+.dark-mode .vehicle_delete_btn:hover {
+  box-shadow: 0 0 20px rgba(244, 67, 54, 0.8);
 }
 
