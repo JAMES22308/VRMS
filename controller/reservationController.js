@@ -5,6 +5,7 @@ import { VehicleView } from "../views/vehicleView.js";
 import { RentalView } from "../views/rentalView.js";
 import { CustomerModel } from "../model/customerModel.js";
 import { SearchView } from "../views/searchViews.js";
+import { DashboardView } from "../views/dashboardView.js";
 
 class ReservationController {
     constructor() {
@@ -15,6 +16,7 @@ class ReservationController {
         this.rentalView = new RentalView();
         this.customerModel = new CustomerModel();
         this.searchView = new SearchView()
+        this.dashboardView = new DashboardView()
 
         this.initialize();
     }
@@ -63,6 +65,10 @@ class ReservationController {
             this.view.vehicleValues(allVehicles);
             this.rentalView.vehicleValues(allVehicles);
             this.searchView.displayAllValues(this.vehicleModel.getAllVehicle())
+
+            const totalvehicle = this.vehicleModel.getTotalAvailable()
+            this.dashboardView.getTotalAvailableVehicles(totalvehicle)
+
         });
     }
 
@@ -87,6 +93,9 @@ class ReservationController {
                 this.vehicleView.displayValues(allVehicles);
                 this.view.vehicleValues(allVehicles);
                 this.rentalView.vehicleValues(allVehicles);
+
+                const totalvehicle = this.vehicleModel.getTotalAvailable()
+                this.dashboardView.getTotalAvailableVehicles(totalvehicle)
             }
         });
     }
