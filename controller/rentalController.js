@@ -166,6 +166,12 @@ class RentalController {
                 const index = e.target.dataset.index;
                 this.rentalModel.deleteRentals(index);
 
+
+                const targetvehicle = this.vehicleModel.getAllVehicle()
+                targetvehicle[index].status = "Available"
+                this.dashboardView.getTotalAvailableVehicles(this.vehicleModel.getTotalAvailable())
+                this.reservationView.vehicleValues(targetvehicle)
+
                 this.rentalView.displayRentals(this.rentalModel.getAllRentals());
                 this.vehicleView.displayValues(this.vehicleModel.getAllVehicle());
                 this.rentalView.vehicleValues(this.vehicleModel.getAllVehicle())
@@ -177,13 +183,9 @@ class RentalController {
                 this.dashboardView.totalRevenue(this.rentalModel.getTotalRevenue())
 
                 this.dashboardView.totalRentals(this.rentalModel.getTotalRentals())
-                const targetvehicle = this.vehicleModel.getAllVehicle()
-                console.log(targetvehicle[index].status)
-                targetvehicle[index].status = "Available"
-                console.log(targetvehicle[index].status)
-                console.log(targetvehicle[index])
-                this.dashboardView.getTotalAvailableVehicles(this.vehicleModel.getTotalAvailable())
+                
 
+                
 
                 this.clearForm()
             }
