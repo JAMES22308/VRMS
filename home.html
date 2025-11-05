@@ -136,19 +136,19 @@
         <!-- LEFT SIDE -->
         <div class="form-column">
           <label for="fullName">Full Name</label>
-          <input type="text" id="fullName" placeholder="Full Name">
+          <input type="text" id="fullName" placeholder="Full Name" required>
 
           <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Email">
+          <input type="email" id="email" placeholder="Email" required>
 
           <label for="phone">Phone Number</label>
-          <input type="text" id="phone" placeholder="Phone Number">
+          <input type="text" id="phone" placeholder="Phone Number" required>
         </div>
 
         <!-- RIGHT SIDE -->
         <div class="form-column">
           <label for="address">Address</label>
-          <input type="text" id="address" placeholder="Address">
+          <input type="text" id="address" placeholder="Address" required>
 
           <label for="customer-type">Customer Type</label>
           <select id="customer-type">
@@ -157,7 +157,7 @@
           </select>
 
           <label for="date">Date</label>
-          <input id="date" type="date">
+          <input id="date" type="date" required>
         </div>
       </div>
 
@@ -300,10 +300,10 @@
             </select>
 
             <label for="rentalStartDate">Start Date</label>
-            <input type="date" id="rentalStartDate">
+            <input type="date" id="rentalStartDate" required>
 
             <label for="rentalEndDate">End Date</label>
-            <input type="date" id="rentalEndDate">
+            <input type="date" id="rentalEndDate" required>
 
             <label for="totalCost">Total Cost ($)</label>
             <input type="number" id="totalCost" placeholder="Total Cost" readonly>
@@ -361,7 +361,7 @@
 
         <div class="form-group">
             <label for="reservationDate">Reservation Date</label>
-            <input type="date" id="reservationDate">
+            <input type="date" id="reservationDate" required>
         </div>
 
         <div class="reserve-button"><button type="submit" id="add_reserve_button">Reserve</button></div>
