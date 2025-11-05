@@ -176,7 +176,14 @@ class RentalController {
 
                 this.dashboardView.totalRevenue(this.rentalModel.getTotalRevenue())
 
-                
+                this.dashboardView.totalRentals(this.rentalModel.getTotalRentals())
+                const targetvehicle = this.vehicleModel.getAllVehicle()
+                console.log(targetvehicle[index].status)
+                targetvehicle[index].status = "Available"
+                console.log(targetvehicle[index].status)
+                console.log(targetvehicle[index])
+                this.dashboardView.getTotalAvailableVehicles(this.vehicleModel.getTotalAvailable())
+
 
                 this.clearForm()
             }

@@ -61,4 +61,6 @@ export class VehicleModel {
     }
     return total
     }
+
+    
 }
