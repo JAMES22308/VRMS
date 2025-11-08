@@ -26,7 +26,7 @@
 <header class="sidebar" id="sidebar">
   <h2 class="sidebar-title"><p style="color: #0067fc; margin-right: 5px;">V</p><p> CAR RENT</p></h2>
   <nav>
-    <button id="dashboard_btn"><span><img class="icons" src="images/icons/dashboard.png" alt="">Dashboard</span></button>
+    <button id="dashboard_btn" class="active"><span><img class="icons" src="images/icons/dashboard.png" alt="">Dashboard</span></button>
     <button id="customers_btn"><span><img class="icons" src="images/icons/customer.png" alt="">Customers</span></button>
     <button id="vehicles_btn"><span> <img class="icons" src="images/icons/car.png" alt="">Vehicles</span></button>
     <button id="rentals_btn"><span><img class="icons" src="images/icons/car-rent.png" alt="">Rentals</span></button>
@@ -488,6 +488,33 @@
     }
   });
 </script>
+
+
+
+<script>
+const buttons = document.querySelectorAll('.sidebar nav button');
+const sections = document.querySelectorAll('.section');
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+
+    // Remove active class from all buttons
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // Apply active class to clicked button
+    button.classList.add('active');
+
+    // Hide all sections
+    sections.forEach(section => section.classList.remove('active'));
+
+    // Show matching section
+    const sectionId = button.id.replace('_btn', '_page');
+    document.getElementById(sectionId).classList.add('active');
+
+  });
+});
+</script>
+
 
 
 
