@@ -110,7 +110,7 @@ export class RentalModel {
 
         if (today > endDate) {
             const diffTime = today - endDate;
-            const overdueDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const overdueDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
             const dailyRate = parseFloat(rental.totalCost) / ((endDate - new Date(rental.rentalStartDate)) / (1000*60*60*24) + 1);
             overdueFee = dailyRate * overdueDays;
         }

@@ -394,4 +394,8 @@ describe("Search Functionality", () => {
     expect(resultsBody.querySelectorAll("tr").length).toBe(1);
     expect(resultsBody.innerHTML).toContain("Unavailable");
   });
+  afterAll(() => {
+      localStorage.clear();
+    });
+
 });
